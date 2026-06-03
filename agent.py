@@ -14,22 +14,20 @@ model = genai.GenerativeModel(
 )
 
 def run_agent():
-    print("Skincare & Haircare Advisor")
+    print("Skincare/Haircare Advisor")
     print("Type 'quit' to exit\n")
 
     chat = model.start_chat(enable_automatic_function_calling=True)
 
     while True:
-        user_input = input("You: ").strip()
+        user_input = input("Enter: ").strip()
         if user_input.lower() in ["quit", "exit", "q"]:
-            print("Goodbye!")
             break
         if not user_input:
             continue
 
         response = chat.send_message(user_input)
-        print(f"\nAdvisor: {response.text}")
-        print(f"[history length: {len(chat.history)} messages]\n")
+        print(f"\nSkincare/Haircare Advisor: {response.text}")
 
 if __name__ == "__main__":
     run_agent()
