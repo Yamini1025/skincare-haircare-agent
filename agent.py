@@ -2,7 +2,7 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 from prompts import SYSTEM_PROMPT
-from tools import get_skin_type_info
+from tools import get_skin_type_info, get_hair_type_info
 
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -10,7 +10,7 @@ genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
     system_instruction=SYSTEM_PROMPT,
-    tools=[get_skin_type_info]
+    tools=[get_skin_type_info, get_hair_type_info]
 )
 
 def run_agent():
