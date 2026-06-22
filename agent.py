@@ -2,7 +2,7 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 from prompts import SYSTEM_PROMPT
-from tools import get_skin_type_info, get_hair_type_info
+from tools import get_skin_type_info, get_hair_type_info, product_search, ingredient_search
 
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -10,7 +10,7 @@ genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
     system_instruction=SYSTEM_PROMPT,
-    tools=[get_skin_type_info, get_hair_type_info]
+    tools=[get_skin_type_info, get_hair_type_info, ingredient_search, product_search]
 )
 
 def run_agent():
@@ -21,12 +21,13 @@ def run_agent():
 
     while True:
         user_input = input("Enter: ").strip()
-        if user_input.lower() in ["quit", "exit", "q"]:
+        if user_input.lower() in ["quit", "exit", "bye", "goodbye"]:
             break
         if not user_input:
             continue
 
         response = chat.send_message(user_input)
+
         print(f"\nSkincare/Haircare Advisor: {response.text}")
 
 if __name__ == "__main__":
