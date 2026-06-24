@@ -70,9 +70,12 @@ def run_agent():
         
         message_with_context = build_case_facts_block() + "\nUser message: " + user_input
         response = chat.send_message(message_with_context)
-
-
-        print(f"\nSkincare/Haircare Advisor: {response.text}")
+        if response.text.lower().startswith("requires escalation:"):
+            reason = response.text.split(":")[1].strip()
+            print(f"\nSkincare/Haircare Advisor: This request requires a professional advice: {reason}")
+            print("Please consult a healthcare provider for further assistance.")
+        else :
+            print(f"\nSkincare/Haircare Advisor: {response.text}")
 
 if __name__ == "__main__":
     run_agent()
