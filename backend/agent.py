@@ -7,15 +7,16 @@ from tools import get_skin_type_info, get_hair_type_info, product_search, ingred
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
+#Confidence levels for user profile attributes : "verified", "inferred", "estimated"
 user_profile = {
-    "skin_type": None,
-    "hair_type": None,
-    "concerns": [],
-    "known_allergies": [],
-    "price_preference": None
+    "skin_type": {"value" : None, "confidence": None},
+    "hair_type": {"value" : None, "confidence": None},
+    "concerns": {"value" : [], "confidence": None},
+    "known_allergies": {"value" : [], "confidence": None},
+    "price_preference": {"value" : None, "confidence": None}
 }
 
-def update_user_profile(skin_type: str = None, hair_type: str = None, add_concerns: list[str] = None, add_allergies: list[str] = None, price_preference: str = None) -> str:
+def update_user_profile(skin_type: str = None, hair_type: str = None, add_concerns: list[str] = None, add_allergies: list[str] = None, price_preference: str = None, confidence: str = None) -> str:
     """ Update the user's profile with new information about their skin type, hair type, concerns, known allergies, and price preference.
     Args:
         skin_type: The user's skin type (dry, oily, combination, sensitive, normal).
@@ -23,28 +24,38 @@ def update_user_profile(skin_type: str = None, hair_type: str = None, add_concer
         add_concerns: A list of new concerns to add to the user's profile.
         add_allergies: A list of known allergies to add to the user's profile.
         price_preference: The user's price preference for products (e.g., budget, mid-range, premium).
+        confidence: The confidence level of the information provided (e.g., "verified", "inferred", "estimated").
     Returns a confirmation message indicating that the user's profile has been updated.
     """
     global user_profile
     
-    if skin_type: user_profile["skin_type"] = skin_type
-    if hair_type: user_profile["hair_type"] = hair_type
-    if price_preference: user_profile["price_preference"] = price_preference
+    if skin_type: user_profile["skin_type"] = {"value": skin_type, "confidence": confidence}
+    if hair_type: user_profile["hair_type"] = {"value": hair_type, "confidence": confidence}
+    if price_preference: user_profile["price_preference"] = {"value": price_preference, "confidence": confidence}
     
     if add_concerns:
-        user_profile["concerns"] = list(set(user_profile["concerns"] + list(add_concerns)))
+        user_profile["concerns"] = {"value": list(set(user_profile["concerns"]["value"] + list(add_concerns))), "confidence": confidence}
     if add_allergies:
-        user_profile["known_allergies"] = list(set(user_profile["known_allergies"] + list(add_allergies)))
+        user_profile["known_allergies"] = {"value": list(set(user_profile["known_allergies"]["value"] + list(add_allergies))), "confidence": confidence}
     return "User profile updated successfully."
         
 def build_case_facts_block() -> str:
+    def fmt(field):
+        v = user_profile[field]["value"]
+        c = user_profile[field]["confidence"]
+        if not v:
+            return "unknown"
+        if isinstance(v, list):
+            return f"{', '.join(v)} ({c})" if v else "none stated"
+        return f"{v} ({c})"
+    
     return f"""
 === USER PROFILE (DO NOT SUMMARIZE OR MODIFY) ===
-Skin type: {user_profile['skin_type'] or 'unknown'}
-Hair type: {user_profile['hair_type'] or 'unknown'}
-Concerns: {', '.join(user_profile['concerns']) or 'none stated'}
-Known allergies: {', '.join(user_profile['known_allergies']) or 'none stated'}
-Price preference: {user_profile['price_preference'] or 'any'}
+Skin type: {fmt('skin_type')}
+Hair type: {fmt('hair_type')}
+Concerns: {fmt('concerns')}
+Known allergies: {fmt('known_allergies')}
+Price preference: {fmt('price_preference')}
 === END USER PROFILE ===
 """
 
