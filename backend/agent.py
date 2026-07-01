@@ -15,6 +15,10 @@ user_profile = {
     "known_allergies": {"value" : [], "confidence": None},
     "price_preference": {"value" : None, "confidence": None}
 }
+user_routine = {
+    "skincare": [],
+    "haircare": []
+}
 
 def update_user_profile(skin_type: str = None, hair_type: str = None, add_concerns: list[str] = None, add_allergies: list[str] = None, price_preference: str = None, confidence: str = None) -> str:
     """ Update the user's profile with new information about their skin type, hair type, concerns, known allergies, and price preference.
@@ -28,6 +32,7 @@ def update_user_profile(skin_type: str = None, hair_type: str = None, add_concer
     Returns a confirmation message indicating that the user's profile has been updated.
     """
     global user_profile
+    global user_routine
     
     if skin_type: user_profile["skin_type"] = {"value": skin_type, "confidence": confidence}
     if hair_type: user_profile["hair_type"] = {"value": hair_type, "confidence": confidence}
