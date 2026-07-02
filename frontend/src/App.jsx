@@ -38,13 +38,13 @@ function App() {
       if (!res.ok) return
       const data = await res.json()
       setProfile({
-        skinType: data.skin_type || '',
-        hairType: data.hair_type || '',
-        concerns: data.concerns || '',
-        allergies: data.allergies || '',
-        morningRoutine: data.morning_routine || [],
-        eveningRoutine: data.evening_routine || [],
-        products: data.recommended_products || []
+        skinType: data.profile.skin_type?.value || '',
+        hairType: data.profile.hair_type?.value || '',
+        concerns: data.profile.concerns?.value?.join(', ') || '',
+        allergies: data.profile.allergies?.value?.join(', ') || '',
+        morningRoutine: [],
+        eveningRoutine: [],
+        products: []
       })
     } catch (error) {
       console.error('Unable to load profile:', error)
@@ -117,7 +117,7 @@ function App() {
       const res = await fetch('http://localhost:8000/ingredient/check-conflict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ingredient_a: first, ingredient_b: second })
+        body: JSON.stringify({ ingredient1: first, ingredient2: second })
       })
       const data = await res.json()
       setConflictResult(data)

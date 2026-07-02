@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import agent
+import tools
 
 
 class ChatRequest(BaseModel):
@@ -11,10 +12,17 @@ class ChatRequest(BaseModel):
 class IngredientRequest(BaseModel):
     ingredient1: str
     ingredient2: str
+
 class ChatResponse(BaseModel):
     response: str
     session_id: str
     escalation_required: bool = False
+
+class ConflictCheckResponse(BaseModel):
+    ingredient1: str
+    ingredient2: str
+    safe: bool
+    reason: str
     
 app = FastAPI(title="Skincare and Haircare Agent", description="An AI agent that provides skincare and haircare advice.")
 app.add_middleware(
@@ -32,29 +40,6 @@ def get_ingredient(name: str):
         if isinstance(result, str) and "not found" in result.lower():
             return {"error": result}, 404
         return result
-    except Exception as e:
-        return {"error": str(e)}, 500
-
-@app.post("/ingredient/check-conflict")
-def check_ingredient_conflict(request: IngredientRequest):
-    """Check if two ingredients are compatible"""
-    try:
-        # Create a prompt for the agent to evaluate ingredient compatibility
-        conflict_check = agent.run(
-            f"Are {request.ingredient1} and {request.ingredient2} safe to use together in skincare? Provide a yes/no answer with brief explanation.",
-            []
-        )
-        
-        # Parse the response to determine if safe
-        is_safe = "yes" in conflict_check.lower() or "safe" in conflict_check.lower()
-        
-        return {
-            "ingredient1": request.ingredient1,
-            "ingredient2": request.ingredient2,
-            "safe": is_safe,
-            "reason": conflict_check,
-            "recommendation": "You can safely use these ingredients together." if is_safe else "Consider using these ingredients at different times or consult a dermatologist."
-        }
     except Exception as e:
         return {"error": str(e)}, 500
     
@@ -87,3 +72,23 @@ def get_routine(session_id: str):
     if session_id not in history:
         return {"error": "Session not found"}
     return {"session_id": session_id, "routine": agent.user_routine}
+
+@app.post("/ingredient/check-conflict")
+async def check_ingredient_conflict(request: IngredientRequest):
+    """Check if two ingredients are compatible"""
+    avoid_a = tools.ingredient_search(request.ingredient1).get("should_not_combine_with", [])
+    avoid_b = tools.ingredient_search(request.ingredient2).get("should_not_combine_with", [])
+    if request.ingredient2.lower() in [x.lower() for x in avoid_a] or request.ingredient1.lower() in [x.lower() for x in avoid_b]:
+        return ConflictCheckResponse(
+            ingredient1=request.ingredient1,
+            ingredient2=request.ingredient2,
+            safe=False,
+            reason=f"{request.ingredient1} and {request.ingredient2} should not be combined according to ingredient data."
+        )
+    else:
+        return ConflictCheckResponse(
+            ingredient1=request.ingredient1,
+            ingredient2=request.ingredient2,
+            safe=True,
+            reason="Ingredients are generally considered safe to use together based on ingredient data."
+        )
