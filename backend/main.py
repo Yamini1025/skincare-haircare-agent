@@ -36,7 +36,7 @@ app.add_middleware(
 def get_ingredient(name: str):
     """Get information about an ingredient"""
     try:
-        result = agent.ingredient_search(name)
+        result = tools.ingredient_search(name)
         if isinstance(result, str) and "not found" in result.lower():
             return {"error": result}, 404
         return result

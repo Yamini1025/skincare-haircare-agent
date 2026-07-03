@@ -129,196 +129,172 @@ function App() {
     }
   }
 
-  const renderRoutine = (title, items) => (
+  const renderRoutine = (title, icon, message) => (
     <div className="card">
-      <h2>{title}</h2>
-      {items.length ? (
-        <ol className="routine-list">
-          {items.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      ) : (
-        <p className="placeholder">Complete the chat to build your profile.</p>
-      )}
+      <div className="card-head">
+        <div className="card-icon">{icon}</div>
+        <span className="card-title">{title}</span>
+      </div>
+      <div className="empty-msg">{message}</div>
     </div>
   )
 
   const renderProfileField = (label, value) => (
-    <div className="field-row">
-      <span>{label}</span>
-      <strong>{value || 'Complete the chat to build your profile.'}</strong>
+    <div className="profile-row">
+      <span className="profile-label">{label}</span>
+      {value ? <span className="profile-value">{value}</span> : <span className="empty-chip">Not set</span>}
     </div>
   )
 
   return (
     <div className="app-shell">
       <header className="app-header">
-        <div>
-          <h1>Skincare and Haircare Advisor</h1>
-          <p className="session-label">Session: {sessionId}</p>
+        <div className="nav-brand">
+          <div>
+            <div className="nav-title">Skincare and Haircare Advisor</div>
+            <div className="nav-sub">Session: {sessionId}</div>
+          </div>
         </div>
-        <nav className="tab-nav">
-          <button className={activeTab === 'home' ? 'tab-button active' : 'tab-button'} onClick={() => setActiveTab('home')}>
+        <div className="nav-links">
+          <button className={`nav-link ${activeTab === 'home' ? 'active' : ''}`} onClick={() => setActiveTab('home')}>
             Home
           </button>
-          <button className={activeTab === 'chat' ? 'tab-button active' : 'tab-button'} onClick={() => setActiveTab('chat')}>
+          <button className={`nav-link ${activeTab === 'chat' ? 'active' : ''}`} onClick={() => setActiveTab('chat')}>
             Chat
           </button>
-          <button className={activeTab === 'ingredient' ? 'tab-button active' : 'tab-button'} onClick={() => setActiveTab('ingredient')}>
-            Ingredient Checker
+          <button className={`nav-link ${activeTab === 'ingredient' ? 'active' : ''}`} onClick={() => setActiveTab('ingredient')}>
+            Ingredient checker
           </button>
-        </nav>
+        </div>
       </header>
 
       <main className="main-content">
         {activeTab === 'home' && (
-          <section className="dashboard-view">
-            <div className="dashboard-grid">
-              <div className="card profile-card">
-                <h2>Profile</h2>
+          <section className="home-screen screen active">
+            <div className="grid2">
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon user">👤</div>
+                  <span className="card-title">Your profile</span>
+                </div>
                 {renderProfileField('Skin type', profile.skinType)}
                 {renderProfileField('Hair type', profile.hairType)}
                 {renderProfileField('Concerns', profile.concerns)}
                 {renderProfileField('Allergies', profile.allergies)}
               </div>
-              <div className="card recommended-card">
-                <h2>Recommended Products</h2>
-                {profile.products.length ? (
-                  <div className="product-list">
-                    {profile.products.map((item, index) => (
-                      <div key={index} className="product-item">
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
-                        <span className="price-range">{item.price_range || 'Price range unavailable'}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="placeholder">Complete the chat to build your profile.</p>
-                )}
-              </div>
-            </div>
 
-            <div className="dashboard-grid two-column">
-              {renderRoutine('Morning Routine', profile.morningRoutine)}
-              {renderRoutine('Evening Routine', profile.eveningRoutine)}
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon heart">💖</div>
+                  <span className="card-title">Recommended products</span>
+                </div>
+                <div className="empty-msg">Complete the chat to get personalized product picks.</div>
+              </div>
+
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon sun">☀️</div>
+                  <span className="card-title">Morning routine</span>
+                </div>
+                <div className="empty-msg">Complete the chat to build your morning routine.</div>
+              </div>
+
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon moon">🌙</div>
+                  <span className="card-title">Evening routine</span>
+                </div>
+                <div className="empty-msg">Complete the chat to build your evening routine.</div>
+              </div>
             </div>
           </section>
         )}
 
         {activeTab === 'chat' && (
-          <section className="chat-view">
-            <div className="chat-panel">
-              <div className="panel-header">
-                <div>
-                  <h2>Advisor Chat</h2>
-                  <p>Ask about routines, products, and skin or haircare concerns.</p>
+          <section className="screen active">
+            <div className="chat-msgs">
+              {messages.map((message, index) => (
+                <div key={index} className={`msg-row ${message.sender === 'user' ? 'you' : ''}`}>
+                  <span className="msg-label">{message.sender === 'user' ? 'You' : 'Advisor'}</span>
+                  <div className="bubble">{message.text}</div>
                 </div>
-              </div>
-
-              <div className="message-list">
-                {messages.map((message, index) => (
-                  <div key={index} className={`message ${message.sender}`}>
-                    <span className="message-label">{message.sender === 'user' ? 'You' : 'Advisor'}</span>
-                    <p>{message.text}</p>
-                  </div>
-                ))}
-                {isLoading && (
-                  <div className="message agent loading">
-                    <span className="message-label">Advisor</span>
-                    <p>Thinking…</p>
-                  </div>
-                )}
-              </div>
-
-              <div className="composer">
-                <textarea
-                  value={input}
-                  onChange={event => setInput(event.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Type a message..."
-                  rows={4}
-                />
-                <button type="button" onClick={handleSend} disabled={isLoading}>
-                  {isLoading ? 'Sending…' : 'Send'}
-                </button>
-              </div>
+              ))}
+              {isLoading && (
+                <div className="msg-row">
+                  <span className="msg-label">Advisor</span>
+                  <div className="bubble">Thinking…</div>
+                </div>
+              )}
+            </div>
+            <div className="chat-footer">
+              <textarea
+                className="chat-input"
+                value={input}
+                onChange={event => setInput(event.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a message…"
+              />
+              <button className="send-btn" onClick={handleSend} disabled={isLoading}>
+                {isLoading ? 'Sending…' : 'Send'}
+              </button>
             </div>
           </section>
         )}
 
         {activeTab === 'ingredient' && (
-          <section className="ingredient-view">
-            <div className="grid-columns">
-              <div className="card lookup-card">
-                <h2>Ingredient Lookup</h2>
-                <p>Search a single ingredient to review benefits and precautions.</p>
-                <div className="form-row">
-                  <input
-                    value={ingredientQuery}
-                    onChange={event => setIngredientQuery(event.target.value)}
-                    placeholder="Enter ingredient name"
-                  />
-                  <button type="button" onClick={handleIngredientLookup} disabled={ingredientLoading}>
-                    {ingredientLoading ? 'Loading…' : 'Lookup'}
-                  </button>
+          <section className="screen active">
+            <div className="grid2">
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon flask">🧪</div>
+                  <span className="card-title">Ingredient lookup</span>
                 </div>
+                <input
+                  className="ing-input"
+                  value={ingredientQuery}
+                  onChange={event => setIngredientQuery(event.target.value)}
+                  placeholder="e.g. niacinamide"
+                />
+                <button className="ing-btn" onClick={handleIngredientLookup} disabled={ingredientLoading}>
+                  {ingredientLoading ? 'Looking up…' : 'Look up'}
+                </button>
                 {ingredientResult && (
-                  <div className="ingredient-result">
-                    {ingredientResult.error ? (
-                      <p className="placeholder">{ingredientResult.error}</p>
-                    ) : (
-                      <>
-                        <div className="detail-row">
-                          <strong>Benefits</strong>
-                          <p>{ingredientResult.benefits || 'No benefits data available.'}</p>
-                        </div>
-                        <div className="detail-row">
-                          <strong>Side effects</strong>
-                          <p>{ingredientResult.side_effects || 'No side effects listed.'}</p>
-                        </div>
-                        <div className="detail-row">
-                          <strong>Suited for</strong>
-                          <p>{ingredientResult.suited_for || 'No suited for details.'}</p>
-                        </div>
-                        <div className="detail-row">
-                          <strong>Avoid for</strong>
-                          <p>{ingredientResult.avoid_for || 'No avoid for details.'}</p>
-                        </div>
-                      </>
-                    )}
+                  <div className="ing-result">
+                    <div className="ing-name">{ingredientResult.name || ingredientQuery || 'Ingredient'}</div>
+                    <div className="ing-desc">
+                      {ingredientResult.description || ingredientResult.error || 'Get ingredient benefits and recommendations here.'}
+                    </div>
                   </div>
                 )}
               </div>
 
-              <div className="card conflict-card">
-                <h2>Conflict Checker</h2>
-                <p>Compare two ingredients for compatibility.</p>
-                <div className="form-row">
-                  <input
-                    value={conflictA}
-                    onChange={event => setConflictA(event.target.value)}
-                    placeholder="Ingredient A"
-                  />
+              <div className="card">
+                <div className="card-head">
+                  <div className="card-icon refresh">🔄</div>
+                  <span className="card-title">Conflict checker</span>
                 </div>
-                <div className="form-row">
-                  <input
-                    value={conflictB}
-                    onChange={event => setConflictB(event.target.value)}
-                    placeholder="Ingredient B"
-                  />
-                </div>
-                <button type="button" onClick={handleConflictCheck} disabled={conflictLoading}>
-                  {conflictLoading ? 'Checking…' : 'Check Conflict'}
+                <input
+                  className="ing-input"
+                  value={conflictA}
+                  onChange={event => setConflictA(event.target.value)}
+                  placeholder="First ingredient"
+                />
+                <input
+                  className="ing-input"
+                  value={conflictB}
+                  onChange={event => setConflictB(event.target.value)}
+                  placeholder="Second ingredient"
+                />
+                <button className="ing-btn" onClick={handleConflictCheck} disabled={conflictLoading}>
+                  {conflictLoading ? 'Checking…' : 'Check compatibility'}
                 </button>
                 {conflictResult && (
-                  <div className="conflict-result">
-                    <span className={conflictResult.safe ? 'badge badge-safe' : 'badge badge-conflict'}>
-                      {conflictResult.safe ? 'Safe' : 'Conflict'}
-                    </span>
-                    <p>{conflictResult.message || (conflictResult.safe ? 'These ingredients are compatible.' : 'These ingredients may conflict.')}</p>
-                  </div>
+                  <>
+                    <div className={conflictResult.safe ? 'badge-ok' : 'badge-warn'}>
+                      {conflictResult.safe ? 'Use with confidence' : 'Use with caution'}
+                    </div>
+                    <div className="ing-desc">{conflictResult.message || (conflictResult.safe ? 'These ingredients are compatible.' : 'These ingredients may cause irritation together.')}</div>
+                  </>
                 )}
               </div>
             </div>
@@ -326,9 +302,7 @@ function App() {
         )}
       </main>
 
-      <footer className="app-footer">
-        Yamini Karthik © {new Date().getFullYear()}
-      </footer>
+      <footer className="footer">Yamini Karthik © {new Date().getFullYear()}</footer>
     </div>
   )
 }
