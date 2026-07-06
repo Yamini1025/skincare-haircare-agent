@@ -2,6 +2,8 @@ import json
 import google.generativeai as genai
 from urllib import response
 
+import agent
+
 
 def get_skin_type_info(skin_type: str) -> dict:
     """ Get detailed characteristics, recommendations, and ingredients to avoid for a skin type.
@@ -134,9 +136,12 @@ def product_search(product_type: str, skin_or_hair_type: str) -> dict:
     
     filtered_products = []
     for item in product_dataset:
-        if item.get("category", "").lower() == product_type.lower() and skin_or_hair_type in item.get("skin_types", []) + item.get("hair_types", []):
+        skin = skin_or_hair_type.lower()
+        if item.get("category", "").lower() == product_type.lower() and skin in [x.lower() for x in item.get("skin_types", [])] + [x.lower() for x in item.get("hair_types", [])]:
             filtered_products.append(item)
     if not filtered_products:
         return [{"isError" : False, "found" : False, "isRetryable" : False, "context": {"attempted": f"Search for {product_type} products for {skin_or_hair_type}"}}]
     else :
-        return filtered_products[:5]
+        filtered_products = filtered_products[:5]
+    agent.update_recommended_products(filtered_products)
+    return filtered_products

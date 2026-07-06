@@ -15,9 +15,10 @@ user_profile = {
     "known_allergies": {"value" : [], "confidence": None},
     "price_preference": {"value" : None, "confidence": None}
 }
+user_recommended_products = []
 user_routine = {
-    "skincare": [],
-    "haircare": []
+    "am": [],
+    "pm": []
 }
 
 def update_user_profile(skin_type: str = None, hair_type: str = None, add_concerns: list[str] = None, add_allergies: list[str] = None, price_preference: str = None, confidence: str = None) -> str:
@@ -43,7 +44,39 @@ def update_user_profile(skin_type: str = None, hair_type: str = None, add_concer
     if add_allergies:
         user_profile["known_allergies"] = {"value": list(set(user_profile["known_allergies"]["value"] + list(add_allergies))), "confidence": confidence}
     return "User profile updated successfully."
-        
+
+def update_recommended_products(products: object) -> str:
+    """ Add recommended product names to the user's profile.
+        Call this after calling product_search() and getting a product recommendation.
+    Args:
+        products: Either a product dict, a list of product dicts, or a list of product names.
+    Returns a confirmation message indicating that the recommended products have been updated.
+    """
+    global user_recommended_products
+
+    def extract_product_name(item):
+        if isinstance(item, str):
+            return item
+        if isinstance(item, dict):
+            return item.get("name") or item.get("title") or None
+        return None
+
+    # If a dict was passed, normalize to a single item list.
+    if isinstance(products, dict):
+        products = [products]
+
+    if isinstance(products, list):
+        for item in products:
+            name = extract_product_name(item)
+            if name and name not in user_recommended_products:
+                user_recommended_products.append(name)
+    else:
+        name = extract_product_name(products)
+        if name and name not in user_recommended_products:
+            user_recommended_products.append(name)
+
+    return "Recommended products updated successfully."
+
 def build_case_facts_block() -> str:
     def fmt(field):
         v = user_profile[field]["value"]
@@ -67,7 +100,7 @@ Price preference: {fmt('price_preference')}
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
     system_instruction=build_case_facts_block() + "\n" + SYSTEM_PROMPT + "\n" + FEW_SHOT_PROMPT,
-    tools=[get_skin_type_info, get_hair_type_info, ingredient_search, product_search, update_user_profile]
+    tools=[get_skin_type_info, get_hair_type_info, ingredient_search, product_search, update_user_profile, update_recommended_products]
 )
 
 def run(message : str, history : list) -> str:

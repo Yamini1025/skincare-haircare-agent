@@ -65,7 +65,7 @@ def chat(request: ChatRequest):
 def get_profile(session_id: str):
     if session_id not in history:
         return {"error": "Session not found"}
-    return {"session_id": session_id, "profile": agent.user_profile}
+    return {"session_id": session_id, "profile": agent.user_profile, "recommended_products": agent.user_recommended_products}
 
 @app.get("/routine/{session_id}")
 def get_routine(session_id: str):

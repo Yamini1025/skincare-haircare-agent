@@ -7,6 +7,7 @@ const initialProfile = {
   hairType: '',
   concerns: '',
   allergies: '',
+  recommendedProducts: '',
   morningRoutine: [],
   eveningRoutine: [],
   products: []
@@ -37,11 +38,20 @@ function App() {
       const res = await fetch(`http://localhost:8000/profile/${sessionId}`)
       if (!res.ok) return
       const data = await res.json()
+      const recommendedProducts = Array.isArray(data.recommended_products)
+        ? data.recommended_products
+            .map(product => (typeof product === 'string' ? product : product.name || product.title || JSON.stringify(product)))
+            .join(', ')
+        : typeof data.recommended_products === 'string'
+        ? data.recommended_products
+        : ''
+
       setProfile({
         skinType: data.profile.skin_type?.value || '',
         hairType: data.profile.hair_type?.value || '',
         concerns: data.profile.concerns?.value?.join(', ') || '',
-        allergies: data.profile.allergies?.value?.join(', ') || '',
+        allergies: data.profile.known_allergies?.value?.join(', ') || '',
+        recommendedProducts: [],
         morningRoutine: [],
         eveningRoutine: [],
         products: []
@@ -188,7 +198,11 @@ function App() {
                   <div className="card-icon heart">💖</div>
                   <span className="card-title">Recommended products</span>
                 </div>
-                <div className="empty-msg">Complete the chat to get personalized product picks.</div>
+                {profile.recommendedProducts ? (
+                  <div className="profile-value">{profile.recommendedProducts}</div>
+                ) : (
+                  <div className="empty-msg">Complete the chat to get personalized product picks.</div>
+                )}
               </div>
 
               <div className="card">
