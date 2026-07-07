@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import './App.css'
 
 const sessionId = 'user-001'
@@ -28,6 +28,11 @@ function App() {
   const [conflictB, setConflictB] = useState('')
   const [conflictResult, setConflictResult] = useState(null)
   const [conflictLoading, setConflictLoading] = useState(false)
+  const messagesEndRef = useRef(null)
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, isLoading])
 
   useEffect(() => {
     fetchProfile()
@@ -51,7 +56,7 @@ function App() {
         hairType: data.profile.hair_type?.value || '',
         concerns: data.profile.concerns?.value?.join(', ') || '',
         allergies: data.profile.known_allergies?.value?.join(', ') || '',
-        recommendedProducts: [],
+        recommendedProducts,
         morningRoutine: [],
         eveningRoutine: [],
         products: []
@@ -239,6 +244,7 @@ function App() {
                   <div className="bubble">Thinking…</div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
             <div className="chat-footer">
               <textarea

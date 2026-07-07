@@ -233,6 +233,7 @@ body,
   flex: 1;
   border-radius: 14px;
   border: 0.5px solid #e8d5e8;
+  overflow-y: auto; 
 }
 
 .msg-row {
