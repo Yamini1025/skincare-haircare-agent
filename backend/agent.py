@@ -3,79 +3,12 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from prompts import SYSTEM_PROMPT, FEW_SHOT_PROMPT
 from tools import get_skin_type_info, get_hair_type_info, product_search, ingredient_search
+from state import user_profile, user_recommended_products, user_routine
 
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 #Confidence levels for user profile attributes : "verified", "inferred", "estimated"
-user_profile = {
-    "skin_type": {"value" : None, "confidence": None},
-    "hair_type": {"value" : None, "confidence": None},
-    "concerns": {"value" : [], "confidence": None},
-    "known_allergies": {"value" : [], "confidence": None},
-    "price_preference": {"value" : None, "confidence": None}
-}
-user_recommended_products = []
-user_routine = {
-    "am": [],
-    "pm": []
-}
-
-def update_user_profile(skin_type: str = None, hair_type: str = None, add_concerns: list[str] = None, add_allergies: list[str] = None, price_preference: str = None, confidence: str = None) -> str:
-    """ Update the user's profile with new information about their skin type, hair type, concerns, known allergies, and price preference.
-    Args:
-        skin_type: The user's skin type (dry, oily, combination, sensitive, normal).
-        hair_type: The user's hair type (straight, wavy, curly, coily).
-        add_concerns: A list of new concerns to add to the user's profile.
-        add_allergies: A list of known allergies to add to the user's profile.
-        price_preference: The user's price preference for products (e.g., budget, mid-range, premium).
-        confidence: The confidence level of the information provided (e.g., "verified", "inferred", "estimated").
-    Returns a confirmation message indicating that the user's profile has been updated.
-    """
-    global user_profile
-    global user_routine
-    
-    if skin_type: user_profile["skin_type"] = {"value": skin_type, "confidence": confidence}
-    if hair_type: user_profile["hair_type"] = {"value": hair_type, "confidence": confidence}
-    if price_preference: user_profile["price_preference"] = {"value": price_preference, "confidence": confidence}
-    
-    if add_concerns:
-        user_profile["concerns"] = {"value": list(set(user_profile["concerns"]["value"] + list(add_concerns))), "confidence": confidence}
-    if add_allergies:
-        user_profile["known_allergies"] = {"value": list(set(user_profile["known_allergies"]["value"] + list(add_allergies))), "confidence": confidence}
-    return "User profile updated successfully."
-
-def update_recommended_products(products: object) -> str:
-    """ Add recommended product names to the user's profile.
-        Call this after calling product_search() and getting a product recommendation.
-    Args:
-        products: Either a product dict, a list of product dicts, or a list of product names.
-    Returns a confirmation message indicating that the recommended products have been updated.
-    """
-    global user_recommended_products
-
-    def extract_product_name(item):
-        if isinstance(item, str):
-            return item
-        if isinstance(item, dict):
-            return item.get("name") or item.get("title") or None
-        return None
-
-    # If a dict was passed, normalize to a single item list.
-    if isinstance(products, dict):
-        products = [products]
-
-    if isinstance(products, list):
-        for item in products:
-            name = extract_product_name(item)
-            if name and name not in user_recommended_products:
-                user_recommended_products.append(name)
-    else:
-        name = extract_product_name(products)
-        if name and name not in user_recommended_products:
-            user_recommended_products.append(name)
-
-    return "Recommended products updated successfully."
 
 def build_case_facts_block() -> str:
     def fmt(field):
