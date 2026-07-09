@@ -199,3 +199,27 @@ def update_recommended_products(products: object) -> str:
             state.user_recommended_products.append(name)
 
     return "Recommended products updated successfully."
+
+def product_search_with_safety_check(product_type: str, skin_or_hair_type: str, allergies: list[str]) -> dict:
+    """Wrapper around product_search to filter out products that contain ingredients the user is allergic to.
+    Args:
+        product_type: The type of product to search for (e.g., "cleanser", "moisturizer", "shampoo").
+        skin_or_hair_type: The user's skin or hair type (e.g., "dry", "oily", "curly").
+        allergies: A list of the user's known allergies.
+    Returns a list of products that do not contain any ingredients the user is allergic to. 
+    If no products are found, returns a message indicating that no safe products were found.
+    """
+    filtered_products = product_search(product_type, skin_or_hair_type)
+    if isinstance(filtered_products, list):
+        safe_products = []
+        for product in filtered_products:
+            ingredients = ingredient_search(product).get("ingredients", [])
+            if not any(allergy.lower() in [ingredient.lower() for ingredient in ingredients] for allergy in allergies):
+                safe_products.append(product)
+        filtered_products = safe_products
+    if not filtered_products:
+        return [{"isError" : False, "found" : False, "isRetryable" : False, "context": {"attempted": f"Search for {product_type} products for {skin_or_hair_type}"}}]
+    else :
+        filtered_products = filtered_products[:5]
+        update_recommended_products(filtered_products)
+    return filtered_products
