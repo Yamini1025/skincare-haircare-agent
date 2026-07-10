@@ -1,6 +1,7 @@
 from fastapi import FastAPI 
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import state
 import agent
 import tools
 
@@ -63,15 +64,11 @@ def chat(request: ChatRequest):
 
 @app.get("/profile/{session_id}")
 def get_profile(session_id: str):
-    if session_id not in history:
-        return {"error": "Session not found"}
-    return {"session_id": session_id, "profile": agent.user_profile, "recommended_products": agent.user_recommended_products}
+    return {"session_id": session_id, "profile": state.user_profile, "recommended_products": state.user_recommended_products}
 
 @app.get("/routine/{session_id}")
 def get_routine(session_id: str):
-    if session_id not in history:
-        return {"error": "Session not found"}
-    return {"session_id": session_id, "routine": agent.user_routine}
+    return {"session_id": session_id, "routine": state.user_routine}
 
 @app.post("/ingredient/check-conflict")
 async def check_ingredient_conflict(request: IngredientRequest):

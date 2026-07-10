@@ -40,9 +40,10 @@ function App() {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/profile/${sessionId}`)
-      if (!res.ok) return
-      const data = await res.json()
+      const profileRes = await fetch(`http://localhost:8000/profile/${sessionId}`)
+      const routineRes = await fetch(`http://localhost:8000/routine/${sessionId}`)
+      if (!profileRes.ok) return
+      const data = await profileRes.json()
       const recommendedProducts = Array.isArray(data.recommended_products)
         ? data.recommended_products
             .map(product => (typeof product === 'string' ? product : product.name || product.title || JSON.stringify(product)))
@@ -51,15 +52,18 @@ function App() {
         ? data.recommended_products
         : ''
 
+        const routineData = routineRes.ok ? await routineRes.json() : {}
+
       setProfile({
         skinType: data.profile.skin_type?.value || '',
         hairType: data.profile.hair_type?.value || '',
         concerns: data.profile.concerns?.value?.join(', ') || '',
         allergies: data.profile.known_allergies?.value?.join(', ') || '',
         recommendedProducts,
-        morningRoutine: [],
-        eveningRoutine: [],
-        products: []
+
+        morningRoutine: routineData.routine?.am || [],
+        eveningRoutine: routineData.routine?.pm || [],
+        products: routineData.routine?.products || []
       })
     } catch (error) {
       console.error('Unable to load profile:', error)
@@ -215,7 +219,17 @@ function App() {
                   <div className="card-icon sun">☀️</div>
                   <span className="card-title">Morning routine</span>
                 </div>
-                <div className="empty-msg">Complete the chat to build your morning routine.</div>
+                {profile.morningRoutine.length > 0 ? (
+                  profile.morningRoutine.map((item, index) => (
+                    <div key={index} className="profile-value">
+                      {item}
+                    </div>
+                  ))
+                ) : (
+                  <div className="empty-msg">
+                    Complete the chat to build your morning routine.
+                  </div>
+                )}
               </div>
 
               <div className="card">
@@ -223,7 +237,17 @@ function App() {
                   <div className="card-icon moon">🌙</div>
                   <span className="card-title">Evening routine</span>
                 </div>
-                <div className="empty-msg">Complete the chat to build your evening routine.</div>
+                {profile.eveningRoutine.length > 0 ? (
+                  profile.eveningRoutine.map((item, index) => (
+                    <div key={index} className="profile-value">
+                      {item}
+                    </div>
+                  ))
+                ) : (
+                  <div className="empty-msg">
+                    Complete the chat to build your evening routine.
+                  </div>
+                )}
               </div>
             </div>
           </section>

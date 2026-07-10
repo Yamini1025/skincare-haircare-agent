@@ -1,9 +1,5 @@
 import json
 import google.generativeai as genai
-from urllib import response
-
-import agent
-from asyncio import tools
 import state
 
 
@@ -200,7 +196,7 @@ def update_recommended_products(products: object) -> str:
 
     return "Recommended products updated successfully."
 
-def product_search_with_safety_check(product_type: str, skin_or_hair_type: str, allergies: list[str]) -> dict:
+def product_search_with_safety_check(product_type: str, skin_or_hair_type: str) -> dict:
     """Wrapper around product_search to filter out products that contain ingredients the user is allergic to.
     Args:
         product_type: The type of product to search for (e.g., "cleanser", "moisturizer", "shampoo").
@@ -210,10 +206,12 @@ def product_search_with_safety_check(product_type: str, skin_or_hair_type: str, 
     If no products are found, returns a message indicating that no safe products were found.
     """
     filtered_products = product_search(product_type, skin_or_hair_type)
+    allergies = state.user_profile["known_allergies"]["value"]
     if isinstance(filtered_products, list):
         safe_products = []
         for product in filtered_products:
-            ingredients = ingredient_search(product).get("ingredients", [])
+            product_name = product.get("name", "")
+            ingredients = product.get("key_ingredients", [])
             if not any(allergy.lower() in [ingredient.lower() for ingredient in ingredients] for allergy in allergies):
                 safe_products.append(product)
         filtered_products = safe_products
@@ -223,3 +221,16 @@ def product_search_with_safety_check(product_type: str, skin_or_hair_type: str, 
         filtered_products = filtered_products[:5]
         update_recommended_products(filtered_products)
     return filtered_products
+
+def update_user_routine(am_list : list, pm_list : list) -> str:
+    """ Update the user's routine with new AM and PM steps.
+    Args:
+        am_list: A list of steps for the user's morning routine.
+        pm_list: A list of steps for the user's evening routine.
+    Returns a confirmation message indicating that the user's routine has been updated.
+    """
+    if am_list:
+        state.user_routine["am"] = list(am_list)
+    if pm_list:
+        state.user_routine["pm"] = list(pm_list)
+    return "User routine updated successfully."

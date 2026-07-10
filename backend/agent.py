@@ -20,20 +20,31 @@ Price preference: {state.user_profile['price_preference']['value'] or 'unknown'}
 
 def needs_intake(message: str) -> bool: 
     """Check if profile is still incomplete.""" 
-    p = state.user_profile 
-    return not p['skin_type']['value'] or not p['hair_type']['value'] 
+    message = message.lower()
+    if any(word in message for word in [
+        "recommend", "suggest", "routine",
+        "morning", "evening", "product"
+    ]):
+        return False
+
+    p = state.user_profile
+
+    return (
+        not p["skin_type"]["value"] or
+        not p["hair_type"]["value"]
+    )
 
 def run(message : str, history : list) -> str:
     profile_context = build_profile_context()
     message_lower = message.lower() 
-
-    if needs_intake(message): 
-        return run_intake_agent(message, profile_context) 
-    elif any(word in message_lower for word in ['routine', 'schedule', 'morning', 'evening', 'steps']): 
+    
+    if any(word in message_lower for word in ['routine', 'schedule', 'morning', 'evening', 'steps']):
         return run_planner_agent(message, profile_context)
     elif any(word in message_lower for word in ['recommend', 'product', 'suggest', 'what should']):
-        return run_research_agent(message, profile_context) 
-    else: 
+        return run_research_agent(message, profile_context)
+    elif needs_intake(message):
+        return run_intake_agent(message, profile_context)
+    else:
         return run_intake_agent(message, profile_context)
     
 if __name__ == "__main__":
