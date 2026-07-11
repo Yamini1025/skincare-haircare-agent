@@ -16,6 +16,7 @@ class IngredientRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
+    active_agent: str
     session_id: str
     escalation_required: bool = False
 
@@ -60,7 +61,7 @@ def chat(request: ChatRequest):
 
     agent_response = agent.run(user_input, history[session_id])
     escalated = agent_response.lower().startswith("requires escalation:")
-    return ChatResponse(response=agent_response, session_id=session_id, escalation_required=escalated)
+    return ChatResponse(response=agent_response["response"], active_agent=agent_response["active_agent"], session_id=session_id, escalation_required=escalated)
 
 @app.get("/profile/{session_id}")
 def get_profile(session_id: str):

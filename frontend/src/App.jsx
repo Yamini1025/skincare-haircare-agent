@@ -20,6 +20,7 @@ function App() {
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [activeAgent, setActiveAgent] = useState('Advisor')
   const [profile, setProfile] = useState(initialProfile)
   const [ingredientQuery, setIngredientQuery] = useState('')
   const [ingredientResult, setIngredientResult] = useState(null)
@@ -78,6 +79,7 @@ function App() {
     setMessages(prev => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
+    }
 
     try {
       const res = await fetch('http://localhost:8000/chat', {
@@ -91,6 +93,7 @@ function App() {
       const data = await res.json()
       const aiMessage = { sender: 'agent', text: data.response || 'Sorry, I did not receive a response.' }
       setMessages(prev => [...prev, aiMessage])
+      setActiveAgent(data.active_agent)
       await fetchProfile()
     } catch (error) {
       console.error('Chat request failed:', error)
@@ -265,7 +268,7 @@ function App() {
               {isLoading && (
                 <div className="msg-row">
                   <span className="msg-label">Advisor</span>
-                  <div className="bubble">Thinking…</div>
+                  <div className="bubble">{activeAgent} is working...</div>
                 </div>
               )}
               <div ref={messagesEndRef} />
