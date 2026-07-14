@@ -75,11 +75,39 @@ function App() {
     const text = input.trim()
     if (!text) return
 
+    const lower = text.toLowerCase()
+
+      const recommendationKeywords = [
+        'recommend',
+        'suggest',
+        'routine',
+        'morning',
+        'evening',
+        'product',
+        'products',
+        'ingredient',
+        'ingredients',
+        'use',
+        'apply',
+        'cleanser',
+        'moisturizer',
+        'serum',
+        'sunscreen',
+        'shampoo',
+        'conditioner',
+        'mask'
+      ]
+
+      setActiveAgent(
+        recommendationKeywords.some(word => lower.includes(word))
+          ? 'Recommendation Agent'
+          : 'Intake Agent'
+      )
+
     const userMessage = { sender: 'user', text }
     setMessages(prev => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
-    }
 
     try {
       const res = await fetch('http://localhost:8000/chat', {
@@ -90,10 +118,12 @@ function App() {
           session_id: sessionId
         })
       })
+      
       const data = await res.json()
+      setActiveAgent(data.active_agent)
       const aiMessage = { sender: 'agent', text: data.response || 'Sorry, I did not receive a response.' }
       setMessages(prev => [...prev, aiMessage])
-      setActiveAgent(data.active_agent)
+      
       await fetchProfile()
     } catch (error) {
       console.error('Chat request failed:', error)
@@ -340,7 +370,7 @@ function App() {
                     <div className={conflictResult.safe ? 'badge-ok' : 'badge-warn'}>
                       {conflictResult.safe ? 'Use with confidence' : 'Use with caution'}
                     </div>
-                    <div className="ing-desc">{conflictResult.message || (conflictResult.safe ? 'These ingredients are compatible.' : 'These ingredients may cause irritation together.')}</div>
+                    <div className="ing-desc">{conflictResult.reason || (conflictResult.safe ? 'These ingredients are compatible.' : 'These ingredients may cause irritation together.')}</div>
                   </>
                 )}
               </div>

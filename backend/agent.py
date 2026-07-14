@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from prompts import SYSTEM_PROMPT, FEW_SHOT_PROMPT
 import state
 from tools import get_skin_type_info, get_hair_type_info, update_user_profile, product_search, update_recommended_products, ingredient_search
-from agents import run_intake_agent, run_research_agent, run_planner_agent
+from agents import run_intake_agent, run_recommendation_agent
 
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -33,19 +33,47 @@ def needs_intake(message: str) -> bool:
         not p["skin_type"]["value"] or
         not p["hair_type"]["value"]
     )
+recommendation_keywords = [
+    "recommend",
+    "suggest",
+    "routine",
+    "morning",
+    "evening",
+    "product",
+    "products",
+    "ingredient",
+    "ingredients",
+    "use",
+    "apply",
+    "routine",
+    "cleanser",
+    "moisturizer",
+    "serum",
+    "sunscreen",
+    "shampoo",
+    "conditioner",
+    "mask"
+]
 
 def run(message : str, history : list) -> str:
     profile_context = build_profile_context()
     message_lower = message.lower() 
     
-    if any(word in message_lower for word in ['routine', 'schedule', 'morning', 'evening', 'steps']):
-        return run_planner_agent(message, profile_context)
-    elif any(word in message_lower for word in ['recommend', 'product', 'suggest', 'what should']):
-        return run_research_agent(message, profile_context)
+    if any(word in message_lower for word in recommendation_keywords):
+        return {
+            "response": run_recommendation_agent(message, profile_context),
+            "active_agent": "Recommendation Agent"
+        }
     elif needs_intake(message):
-        return run_intake_agent(message, profile_context)
+        return {
+            "response": run_intake_agent(message, profile_context),
+            "active_agent": "Intake Agent"
+        }
     else:
-        return run_intake_agent(message, profile_context)
+        return {
+            "response": run_intake_agent(message, profile_context),
+            "active_agent": "Intake Agent"
+        }
     
 if __name__ == "__main__":
     print("Skincare/Haircare Advisor")

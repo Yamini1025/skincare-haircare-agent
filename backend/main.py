@@ -60,7 +60,8 @@ def chat(request: ChatRequest):
         history[session_id] = []
 
     agent_response = agent.run(user_input, history[session_id])
-    escalated = agent_response.lower().startswith("requires escalation:")
+    response_text = agent_response["response"]
+    escalated = response_text.lower().startswith("requires escalation:")
     return ChatResponse(response=agent_response["response"], active_agent=agent_response["active_agent"], session_id=session_id, escalation_required=escalated)
 
 @app.get("/profile/{session_id}")
