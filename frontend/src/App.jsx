@@ -8,8 +8,10 @@ const initialProfile = {
   concerns: '',
   allergies: '',
   recommendedProducts: '',
-  morningRoutine: [],
-  eveningRoutine: [],
+  skin_am_routine: [],
+  skin_pm_routine: [],
+  hair_am_routine: [],
+  hair_pm_routine: [],
   products: []
 }
 
@@ -62,8 +64,10 @@ function App() {
         allergies: data.profile.known_allergies?.value?.join(', ') || '',
         recommendedProducts,
 
-        morningRoutine: routineData.routine?.am || [],
-        eveningRoutine: routineData.routine?.pm || [],
+        skin_am_routine: routineData.routine?.skin_am || [],
+        skin_pm_routine: routineData.routine?.skin_pm || [],
+        hair_am_routine: routineData.routine?.hair_am || [],
+        hair_pm_routine: routineData.routine?.hair_pm || [],
         products: routineData.routine?.products || []
       })
     } catch (error) {
@@ -198,6 +202,16 @@ function App() {
     </div>
   )
 
+  const renderRoutineColumn = (items) => (
+    <>
+      {items.map((item, index) => (
+        <div key={index} className="routine-item">
+          {item}
+        </div>
+      ))}
+    </>
+  )
+
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -252,17 +266,25 @@ function App() {
                   <div className="card-icon sun">☀️</div>
                   <span className="card-title">Morning routine</span>
                 </div>
-                {profile.morningRoutine.length > 0 ? (
-                  profile.morningRoutine.map((item, index) => (
-                    <div key={index} className="profile-value">
-                      {item}
-                    </div>
-                  ))
-                ) : (
-                  <div className="empty-msg">
-                    Complete the chat to build your morning routine.
+                <div className="routine-split">
+                  <div className="routine-column">
+                    <div className="column-label">Skin:</div>
+                    {profile.skin_am_routine.length > 0 ? (
+                      renderRoutineColumn(profile.skin_am_routine)
+                    ) : (
+                      <div className="empty-msg">No skin steps yet.</div>
+                    )}
                   </div>
-                )}
+                  <div className="routine-divider"></div>
+                  <div className="routine-column">
+                    <div className="column-label">Hair:</div>
+                    {profile.hair_am_routine.length > 0 ? (
+                      renderRoutineColumn(profile.hair_am_routine)
+                    ) : (
+                      <div className="empty-msg">No hair steps yet.</div>
+                    )}
+                  </div>
+                </div>
               </div>
 
               <div className="card">
@@ -270,17 +292,25 @@ function App() {
                   <div className="card-icon moon">🌙</div>
                   <span className="card-title">Evening routine</span>
                 </div>
-                {profile.eveningRoutine.length > 0 ? (
-                  profile.eveningRoutine.map((item, index) => (
-                    <div key={index} className="profile-value">
-                      {item}
-                    </div>
-                  ))
-                ) : (
-                  <div className="empty-msg">
-                    Complete the chat to build your evening routine.
+                <div className="routine-split">
+                  <div className="routine-column">
+                    <div className="column-label">Skin:</div>
+                    {profile.skin_pm_routine.length > 0 ? (
+                      renderRoutineColumn(profile.skin_pm_routine)
+                    ) : (
+                      <div className="empty-msg">No skin steps yet.</div>
+                    )}
                   </div>
-                )}
+                  <div className="routine-divider"></div>
+                  <div className="routine-column">
+                    <div className="column-label">Hair:</div>
+                    {profile.hair_pm_routine.length > 0 ? (
+                      renderRoutineColumn(profile.hair_pm_routine)
+                    ) : (
+                      <div className="empty-msg">No hair steps yet.</div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </section>

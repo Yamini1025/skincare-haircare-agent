@@ -209,15 +209,21 @@ def update_recommended_products(products: object) -> str:
 
     return "Recommended products updated successfully."
 
-def update_user_routine(am_list : list, pm_list : list) -> str:
+def update_user_routine(routine_type : str, am_list : list, pm_list : list) -> str:
     """ Update the user's routine with new AM and PM steps.
     Args:
         am_list: A list of steps for the user's morning routine.
         pm_list: A list of steps for the user's evening routine.
     Returns a confirmation message indicating that the user's routine has been updated.
     """
-    if am_list:
-        state.user_routine["am"] = list(am_list)
-    if pm_list:
-        state.user_routine["pm"] = list(pm_list)
+    if routine_type == 'skin' : 
+        if am_list:
+            state.user_routine["skin_am"] = list(am_list)
+        if pm_list:
+            state.user_routine["skin_pm"] = list(pm_list)
+    elif routine_type == 'hair' :
+        if am_list:
+            state.user_routine["hair_am"] = list(am_list)
+        if pm_list:
+            state.user_routine["hair_pm"] = list(pm_list)
     return "User routine updated successfully."

@@ -7,6 +7,8 @@ user_profile = {
 }
 user_recommended_products = []
 user_routine = {
-    "am": [],
-    "pm": []
+    "skin_am": [],
+    "skin_pm": [],
+    "hair_am": [],
+    "hair_pm": []
 }

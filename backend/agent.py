@@ -33,6 +33,7 @@ def needs_intake(message: str) -> bool:
         not p["skin_type"]["value"] or
         not p["hair_type"]["value"]
     )
+
 recommendation_keywords = [
     "recommend",
     "suggest",
