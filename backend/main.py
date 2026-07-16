@@ -1,5 +1,7 @@
 from fastapi import FastAPI 
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import state
 import agent
@@ -37,13 +39,10 @@ app.add_middleware(
 @app.get("/ingredient/{name}")
 def get_ingredient(name: str):
     """Get information about an ingredient"""
-    try:
-        result = tools.ingredient_search(name)
-        if isinstance(result, str) and "not found" in result.lower():
-            return {"error": result}, 404
-        return result
-    except Exception as e:
-        return {"error": str(e)}, 500
+    result = tools.ingredient_search(name)
+    if "error" in result:
+        raise HTTPException(status_code=404, detail=result["error"])
+    return result
     
 @app.get("/")
 def root():
@@ -75,8 +74,21 @@ def get_routine(session_id: str):
 @app.post("/ingredient/check-conflict")
 async def check_ingredient_conflict(request: IngredientRequest):
     """Check if two ingredients are compatible"""
-    avoid_a = tools.ingredient_search(request.ingredient1).get("should_not_combine_with", [])
-    avoid_b = tools.ingredient_search(request.ingredient2).get("should_not_combine_with", [])
+    result_a = tools.ingredient_search(request.ingredient1)
+    result_b = tools.ingredient_search(request.ingredient2)
+
+    print("Ingredient A:", result_a)
+    print("Ingredient B:", result_b)
+
+    if "error" in result_a or "error" in result_b:
+        return ConflictCheckResponse(
+            ingredient1=request.ingredient1,
+            ingredient2=request.ingredient2,
+            safe=False,
+            reason="One or both ingredients not found in the database."
+        )
+    avoid_a = result_a.get("should_not_combine_with", [])
+    avoid_b = result_b.get("should_not_combine_with", [])
     if request.ingredient2.lower() in [x.lower() for x in avoid_a] or request.ingredient1.lower() in [x.lower() for x in avoid_b]:
         return ConflictCheckResponse(
             ingredient1=request.ingredient1,

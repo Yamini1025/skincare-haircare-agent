@@ -57,24 +57,28 @@ recommendation_keywords = [
 ]
 
 def run(message : str, history : list) -> str:
-    profile_context = build_profile_context()
-    message_lower = message.lower() 
+    try :
+        profile_context = build_profile_context()
+        message_lower = message.lower() 
     
-    if any(word in message_lower for word in recommendation_keywords):
-        return {
-            "response": run_recommendation_agent(message, profile_context),
-            "active_agent": "Recommendation Agent"
-        }
-    elif needs_intake(message):
-        return {
-            "response": run_intake_agent(message, profile_context),
-            "active_agent": "Intake Agent"
-        }
-    else:
-        return {
-            "response": run_intake_agent(message, profile_context),
-            "active_agent": "Intake Agent"
-        }
+        if any(word in message_lower for word in recommendation_keywords):
+            return {
+                "response": run_recommendation_agent(message, profile_context),
+                "active_agent": "Recommendation Agent"
+            }
+        elif needs_intake(message):
+            return {
+                "response": run_intake_agent(message, profile_context),
+                "active_agent": "Intake Agent"
+            }
+        else:
+            return {
+                "response": run_intake_agent(message, profile_context),
+                "active_agent": "Intake Agent"
+            }
+    except Exception as e:
+        return "I'm having trouble processing your request. Please try again in a while."
+    
     
 if __name__ == "__main__":
     print("Skincare/Haircare Advisor")

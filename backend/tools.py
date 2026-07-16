@@ -95,26 +95,28 @@ def ingredient_search(ingredient: str) -> dict:
             ingredient: The name of the skincare or haircare ingredient to look up.
         Returns a dictionary with the ingredient's benefits, potential side effects, and recommended usage.
         """
-        ingredient_model = genai.GenerativeModel("gemini-2.5-flash")
-        response = ingredient_model.generate_content(
-            f"""Provide detailed and factual information about the skincare or haircare ingredient '{ingredient}', formatting the output in JSON format with the following structure: 
-            {{
-                'benefits': [list of benefits],
-                'potential_side_effects': [list of potential side effects],
-                'recommended_usage': [list of recommended usage tips],
-                'suitable_for': [list of skin/hair types this ingredient is suitable for],
-                'avoid_for': [list of skin/hair types that should avoid this ingredient],
-                'can_combine_with': [list of other ingredients that can be safely combined with this ingredient],
-                'should_not_combine_with': [list of other ingredients that should not be combined with this ingredient],
-                'usage_frequency': [how often this ingredient can be used safely]
-            }}""")
-   
-        clean_text = response.text.replace("```json", "").replace("```", "").strip()
-
-        try:
+        try :
+            ingredient_model = genai.GenerativeModel("gemini-3.5-flash")
+            response = ingredient_model.generate_content(
+                f"""Provide detailed and factual information about the skincare or haircare ingredient '{ingredient}', formatting the output in JSON format with the following structure: 
+                {{
+                    'benefits': [list of benefits],
+                    'potential_side_effects': [list of potential side effects],
+                    'recommended_usage': [list of recommended usage tips],
+                    'suitable_for': [list of skin/hair types this ingredient is suitable for],
+                    'avoid_for': [list of skin/hair types that should avoid this ingredient],
+                    'can_combine_with': [list of other ingredients that can be safely combined with this ingredient],
+                    'should_not_combine_with': [list of other ingredients that should not be combined with this ingredient],
+                    'usage_frequency': [how often this ingredient can be used safely]
+                }}""")
+    
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            print(response.text)
             return json.loads(clean_text)
-        except json.JSONDecodeError as e:
-            return {"error": f"Could not parse ingredient for: {ingredient}"}
+        except json.JSONDecodeError :
+            return {"error": f"Could not parse ingredient info for: {ingredient}"}
+        except Exception as e:
+            return {"error": f"An error occurred while searching for ingredient info: {str(e)}"}
         
 def product_search(product_type: str, skin_or_hair_type: str) -> dict:
     """ Search for products based on the user's skin or hair type and the type of product they are looking for (e.g., cleanser, moisturizer, shampoo, conditioner).
