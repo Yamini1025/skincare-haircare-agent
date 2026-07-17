@@ -77,8 +77,8 @@ async def check_ingredient_conflict(request: IngredientRequest):
     result_a = tools.ingredient_search(request.ingredient1)
     result_b = tools.ingredient_search(request.ingredient2)
 
-    print("Ingredient A:", result_a)
-    print("Ingredient B:", result_b)
+    print(f"Ingredient A: {result_a}")
+    print(f"Ingredient B: {result_b}")
 
     if "error" in result_a or "error" in result_b:
         return ConflictCheckResponse(

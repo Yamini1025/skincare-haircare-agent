@@ -63,17 +63,17 @@ def run(message : str, history : list) -> str:
     
         if any(word in message_lower for word in recommendation_keywords):
             return {
-                "response": run_recommendation_agent(message, profile_context),
+                "response": run_recommendation_agent(message, profile_context, history),
                 "active_agent": "Recommendation Agent"
             }
         elif needs_intake(message):
             return {
-                "response": run_intake_agent(message, profile_context),
+                "response": run_intake_agent(message, profile_context, history),
                 "active_agent": "Intake Agent"
             }
         else:
             return {
-                "response": run_intake_agent(message, profile_context),
+                "response": run_intake_agent(message, profile_context, history),
                 "active_agent": "Intake Agent"
             }
     except Exception as e:

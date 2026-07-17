@@ -10,28 +10,40 @@ Rules -
 - Do not provide recommendations or advice. Your only task is to gather information and update the user profile.
 - Do not ask for skin information if the conversation is about hair, and vice versa.
 - Never build products or routines.
+- If the user asks for a medical diagnosis, prescription, or explicitly asks for a human, respond with: Requires escalation: [reason]
 """
 
 intake_model = genai.GenerativeModel(
-    model_name="gemini-3.5-flash",
+    model_name="gemini-2.5-flash",
     system_instruction=INTAKE_AGENT_PROMPT,
     tools=[get_skin_type_info, get_hair_type_info, update_user_profile]
 )
 
-def run_intake_agent(user_input: str, profile_context : str) -> str:
+def run_intake_agent(user_input: str, profile_context : str, history : list) -> str:
     """ Run the Intake Agent to gather information about the user's skin type, hair type, concerns, known allergies, and price preference.
     Args:
         user_input: The user's input message.
         profile_context: The current user profile context.
+        history: The conversation history.
     Returns the Intake Agent's response message.
     """
-    try : 
-        chat = intake_model.start_chat(enable_automatic_function_calling=True)
-        response = chat.send_message(f"User message: {user_input}\nCurrent user profile: {profile_context}")
+    try:
+        gemini_history = []
+        for turn in history[:-1]:  
+            role = "user" if turn["role"] == "user" else "model"
+            gemini_history.append({"role": role, "parts": [turn["content"]]})
+        
+        chat = intake_model.start_chat(
+            history=gemini_history,
+            enable_automatic_function_calling=True
+        )
+        response = chat.send_message(
+            f"Current user profile:\n{profile_context}\n\nUser message: {user_input}"
+        )
         return response.text
     except Exception as e:
-        return f"I encountered an issue gathering your information.  (Error: {str(e)[:100]})"
-
+        return f"I had trouble processing that. Could you try rephrasing? ({str(e)})"
+    
 RECOMMENDATION_AGENT_PROMPT = """You are the Recommendation Agent for a skincare and haircare advisor system.
 
 Responsibilities:
@@ -58,21 +70,30 @@ Requires escalation: <reason>
 
 
 recommendation_model = genai.GenerativeModel(
-    model_name="gemini-3.5-flash",
+    model_name="gemini-2.5-flash",
     system_instruction=RECOMMENDATION_AGENT_PROMPT,
     tools=[product_search, update_recommended_products, update_user_routine, ingredient_search, update_user_profile]
 )
 
-def run_recommendation_agent(user_input: str, profile_context : str) -> str:
+def run_recommendation_agent(user_input: str, profile_context : str, history : list) -> str:
     """ Run the Recommendation Agent to recommend products and create routines based on the user's profile information.
     Args:
         user_input: The user's input message.
         profile_context: The current user profile context.
+        history: The conversation history.
     Returns the Recommendation Agent's response message.
     """
     try:
-        chat = recommendation_model.start_chat(enable_automatic_function_calling=True)
+        gemini_history = []
+        for turn in history[:-1]:  
+            role = "user" if turn["role"] == "user" else "model"
+            gemini_history.append({"role": role, "parts": [turn["content"]]})
+        
+        chat = recommendation_model.start_chat(
+            history=gemini_history,
+            enable_automatic_function_calling=True
+        )
         response = chat.send_message(f"User message: {user_input}\nCurrent user profile: {profile_context}")
         return response.text
     except Exception as e:
-        return f"I encountered an issue processing your request.  (Error: {str(e)[:100]})"
+        return f"I encountered an issue processing your request.  (Error: {str(e)})"

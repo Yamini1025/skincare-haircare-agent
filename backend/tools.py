@@ -96,7 +96,7 @@ def ingredient_search(ingredient: str) -> dict:
         Returns a dictionary with the ingredient's benefits, potential side effects, and recommended usage.
         """
         try :
-            ingredient_model = genai.GenerativeModel("gemini-3.5-flash")
+            ingredient_model = genai.GenerativeModel("gemini-2.5-flash")
             response = ingredient_model.generate_content(
                 f"""Provide detailed and factual information about the skincare or haircare ingredient '{ingredient}', formatting the output in JSON format with the following structure: 
                 {{
@@ -108,10 +108,28 @@ def ingredient_search(ingredient: str) -> dict:
                     'can_combine_with': [list of other ingredients that can be safely combined with this ingredient],
                     'should_not_combine_with': [list of other ingredients that should not be combined with this ingredient],
                     'usage_frequency': [how often this ingredient can be used safely]
-                }}""")
+                }}
+                For the fields "can_combine_with" and "should_not_combine_with":
+
+                - Return ONLY ingredient names.
+                - Do NOT include explanations.
+                - Use lowercase.
+                - One ingredient per array element.
+                - Example:
+
+                "can_combine_with": [
+                "niacinamide",
+                "ceramides",
+                "hyaluronic acid"
+                ],
+
+                "should_not_combine_with": [
+                "benzoyl peroxide",
+                "vitamin c",
+                "glycolic acid"
+                ]""")
     
             clean_text = response.text.replace("```json", "").replace("```", "").strip()
-            print(response.text)
             return json.loads(clean_text)
         except json.JSONDecodeError :
             return {"error": f"Could not parse ingredient info for: {ingredient}"}

@@ -367,10 +367,43 @@ function App() {
                 </button>
                 {ingredientResult && (
                   <div className="ing-result">
-                    <div className="ing-name">{ingredientResult.name || ingredientQuery || 'Ingredient'}</div>
-                    <div className="ing-desc">
-                      {ingredientResult.description || ingredientResult.error || 'Get ingredient benefits and recommendations here.'}
-                    </div>
+                    <div className="ing-name">{ingredientQuery}</div>
+                    {ingredientResult.error ? (
+                      <div className="ing-desc">{ingredientResult.error}</div>
+                    ) : (
+                      <>
+                        {ingredientResult.benefits && (
+                          <div className="detail-row">
+                            <strong>Benefits</strong>
+                            <ul>{ingredientResult.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
+                          </div>
+                        )}
+                        {ingredientResult.suitable_for && (
+                          <div className="detail-row">
+                            <strong>Suited for</strong>
+                            <p>{ingredientResult.suitable_for.join(', ')}</p>
+                          </div>
+                        )}
+                        {ingredientResult.avoid_for && (
+                          <div className="detail-row">
+                            <strong>Avoid for</strong>
+                            <p>{ingredientResult.avoid_for.join(', ')}</p>
+                          </div>
+                        )}
+                        {ingredientResult.should_not_combine_with && (
+                          <div className="detail-row">
+                            <strong>Don't combine with</strong>
+                            <p>{ingredientResult.should_not_combine_with.join(', ')}</p>
+                          </div>
+                        )}
+                        {ingredientResult.potential_side_effects && (
+                          <div className="detail-row">
+                            <strong>Side effects</strong>
+                            <p>{ingredientResult.potential_side_effects.join(', ')}</p>
+                          </div>
+                        )}
+                      </>
+                    )}
                   </div>
                 )}
               </div>
