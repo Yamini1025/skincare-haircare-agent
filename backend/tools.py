@@ -96,7 +96,7 @@ def ingredient_search(ingredient: str) -> dict:
         Returns a dictionary with the ingredient's benefits, potential side effects, and recommended usage.
         """
         try :
-            ingredient_model = genai.GenerativeModel("gemini-2.5-flash")
+            ingredient_model = genai.GenerativeModel("gemini-3.5-flash")
             response = ingredient_model.generate_content(
                 f"""Provide detailed and factual information about the skincare or haircare ingredient '{ingredient}', formatting the output in JSON format with the following structure: 
                 {{
