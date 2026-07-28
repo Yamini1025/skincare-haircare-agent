@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import ReactMarkdown from "react-markdown";
 import './App.css'
 
 const sessionId = 'user-001'
@@ -322,7 +323,7 @@ function App() {
               {messages.map((message, index) => (
                 <div key={index} className={`msg-row ${message.sender === 'user' ? 'you' : ''}`}>
                   <span className="msg-label">{message.sender === 'user' ? 'You' : 'Advisor'}</span>
-                  <div className="bubble">{message.text}</div>
+                  <div className="bubble"><ReactMarkdown>{message.text}</ReactMarkdown></div>
                 </div>
               ))}
               {isLoading && (

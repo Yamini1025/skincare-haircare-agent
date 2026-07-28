@@ -77,9 +77,6 @@ async def check_ingredient_conflict(request: IngredientRequest):
     result_a = tools.ingredient_search(request.ingredient1)
     result_b = tools.ingredient_search(request.ingredient2)
 
-    print(f"Ingredient A: {result_a}")
-    print(f"Ingredient B: {result_b}")
-
     if "error" in result_a or "error" in result_b:
         return ConflictCheckResponse(
             ingredient1=request.ingredient1,
@@ -94,7 +91,7 @@ async def check_ingredient_conflict(request: IngredientRequest):
             ingredient1=request.ingredient1,
             ingredient2=request.ingredient2,
             safe=False,
-            reason=f"{request.ingredient1} and {request.ingredient2} should not be combined according to ingredient data."
+            reason=f"{request.ingredient1.title()} and {request.ingredient2.title()} should not be combined according to ingredient data."
         )
     else:
         return ConflictCheckResponse(
