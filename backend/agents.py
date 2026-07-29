@@ -14,7 +14,7 @@ Rules -
 """
 
 intake_model = genai.GenerativeModel(
-    model_name="gemini-2.5-flash",
+    model_name="gemini-3.5-flash",
     system_instruction=INTAKE_AGENT_PROMPT,
     tools=[get_skin_type_info, get_hair_type_info, update_user_profile]
 )
@@ -70,7 +70,7 @@ Requires escalation: <reason>
 
 
 recommendation_model = genai.GenerativeModel(
-    model_name="gemini-2.5-flash",
+    model_name="gemini-3.5-flash",
     system_instruction=RECOMMENDATION_AGENT_PROMPT,
     tools=[product_search, update_recommended_products, update_user_routine, ingredient_search, update_user_profile]
 )

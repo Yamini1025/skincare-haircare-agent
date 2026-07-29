@@ -33,6 +33,7 @@ function App() {
   const [conflictResult, setConflictResult] = useState(null)
   const [conflictLoading, setConflictLoading] = useState(false)
   const messagesEndRef = useRef(null)
+  const [searchedIngredient, setSearchedIngredient] = useState("");
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -148,7 +149,7 @@ function App() {
   const handleIngredientLookup = async () => {
     const name = ingredientQuery.trim()
     if (!name) return
-
+    setSearchedIngredient(ingredientQuery);
     setIngredientLoading(true)
     setIngredientResult(null)
     try {
@@ -368,7 +369,7 @@ function App() {
                 </button>
                 {ingredientResult && (
                   <div className="ing-result">
-                    <div className="ing-name">{ingredientQuery}</div>
+                    <div className="ing-name">{searchedIngredient.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</div>
                     {ingredientResult.error ? (
                       <div className="ing-desc">{ingredientResult.error}</div>
                     ) : (
@@ -379,28 +380,52 @@ function App() {
                             <ul>{ingredientResult.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
                           </div>
                         )}
-                        {ingredientResult.suitable_for && (
+                        {ingredientResult.suitable_for?.length > 0 && (
                           <div className="detail-row">
                             <strong>Suited for</strong>
-                            <p>{ingredientResult.suitable_for.join(', ')}</p>
+                            <ul>
+                              {ingredientResult.suitable_for.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         )}
-                        {ingredientResult.avoid_for && (
+                        {ingredientResult.avoid_for?.length > 0 &&
+                        !(
+                          ingredientResult.avoid_for.length === 1 &&
+                          ingredientResult.avoid_for[0].toLowerCase() === "none"
+                        ) && (
                           <div className="detail-row">
                             <strong>Avoid for</strong>
-                            <p>{ingredientResult.avoid_for.join(', ')}</p>
+                            <ul>
+                              {ingredientResult.avoid_for.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         )}
-                        {ingredientResult.should_not_combine_with && (
+                        {ingredientResult.should_not_combine_with?.length > 0 &&
+                        !(
+                          ingredientResult.should_not_combine_with.length === 1 &&
+                          ingredientResult.should_not_combine_with[0].toLowerCase() === "none"
+                        ) && (
                           <div className="detail-row">
                             <strong>Don't combine with</strong>
-                            <p>{ingredientResult.should_not_combine_with.join(', ')}</p>
+                            <ul>
+                              {ingredientResult.should_not_combine_with.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         )}
-                        {ingredientResult.potential_side_effects && (
+                        {ingredientResult.potential_side_effects?.length > 0 && (
                           <div className="detail-row">
                             <strong>Side effects</strong>
-                            <p>{ingredientResult.potential_side_effects.join(', ')}</p>
+                            <ul>
+                              {ingredientResult.potential_side_effects.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
                           </div>
                         )}
                       </>
