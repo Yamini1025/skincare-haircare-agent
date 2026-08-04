@@ -1,333 +1,2043 @@
 [
     {
-        "id":"001",
-        "name":"CeraVe Foaming Facial Cleanser",
-        "description":"A gentle foaming cleanser that removes dirt, oil, and makeup without disrupting the skin's natural protective barrier.",
-        "price_range":"$",
-        "category":"cleanser",
-        "skin_types":["normal", "oily", "combination"],
-        "hair_types":[],
-        "ingredients":["ceramides", "niacinamide"],
-        "concerns":["acne", "oiliness"]
+        "id": "001",
+        "name": "CeraVe Foaming Facial Cleanser",
+        "description": "A gentle foaming cleanser that removes dirt, oil, and makeup without disrupting the skin's natural protective barrier.",
+        "price_range": "$",
+        "category": "cleanser",
+        "skin_types": [
+            "normal",
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "ceramides",
+            "niacinamide"
+        ],
+        "concerns": [
+            "acne",
+            "oiliness"
+        ]
     },
     {
-        "id":"002",
-        "name":"CeraVe Hydrating Facial Cleanser",
-        "description":"A hydrating cleanser that helps restore the skin's natural moisture barrier while gently cleansing.",
-        "price_range":"$",
-        "category":"cleanser",
-        "skin_types":["dry", "sensitive"],
-        "hair_types":[],
-        "ingredients":["ceramides", "hyaluronic acid"],
-        "concerns":["dryness", "barrier damage"]
+        "id": "002",
+        "name": "CeraVe Hydrating Facial Cleanser",
+        "description": "A hydrating cleanser that helps restore the skin's natural moisture barrier while gently cleansing.",
+        "price_range": "$",
+        "category": "cleanser",
+        "skin_types": [
+            "dry",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "ceramides",
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "dryness",
+            "barrier damage"
+        ]
     },
     {
-        "id":"003",
-        "name":"La Roche-Posay Toleraine Hydrating Gentle Cleanser",
-        "description":"Minimal-ingredient cleanser designed for reactive skin.",
-        "price_range":"$$",
-        "category":"cleanser",
-        "skin_types":["sensitive", "dry"],
-        "hair_types":[],
-        "ingredients":["glycerin", "ceramides"],
-        "concerns":["redness", "irritation"]
+        "id": "003",
+        "name": "La Roche-Posay Toleriane Hydrating Gentle Cleanser",
+        "description": "Minimal-ingredient cleanser designed for reactive skin.",
+        "price_range": "$$",
+        "category": "cleanser",
+        "skin_types": [
+            "sensitive",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycerin",
+            "ceramides"
+        ],
+        "concerns": [
+            "redness",
+            "irritation"
+        ]
     },
     {
-        "id":"004",
-        "name":"Fresh Soy Face Cleanser",
-        "description":"A gentle gel cleanser that removes impurities while maintaining the skin's natural balance.",
-        "price_range":"$$$",
-        "category":"cleanser",
-        "skin_types":["combination"],
-        "hair_types":[],
-        "ingredients":["soy proteins", "cucumber extract"],
-        "concerns":["daily cleansing"]
+        "id": "004",
+        "name": "Fresh Soy Face Cleanser",
+        "description": "A gentle gel cleanser that removes impurities while maintaining the skin's natural balance.",
+        "price_range": "$$$",
+        "category": "cleanser",
+        "skin_types": [
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "soy proteins",
+            "cucumber extract"
+        ],
+        "concerns": [
+            "daily cleansing"
+        ]
     },
     {
-        "id":"005",
-        "name":"CeraVe Daily Moisturizing Lotion",
-        "description":"A lightweight, non-greasy moisturizer that provides long-lasting hydration and helps restore the skin's natural barrier.",
-        "price_range":"$",
-        "category":"moisturizer",
-        "skin_types":["combination", "normal"],
-        "hair_types":[],
-        "ingredients":["ceramides", "hyaluronic acid"],
-        "concerns":["basic hydration"]
+        "id": "005",
+        "name": "CeraVe Daily Moisturizing Lotion",
+        "description": "A lightweight, non-greasy moisturizer that provides long-lasting hydration and helps restore the skin's natural barrier.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "combination",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "ceramides",
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "basic hydration"
+        ]
     },
     {
-        "id":"006",
-        "name":"CeraVe Moisturizing Cream",
-        "description":"A rich, non-greasy, fast-absorbing cream that provides 24-hour hydration and helps restore the protective skin barrier.",
-        "price_range":"$",
-        "category":"moisturizer",
-        "skin_types":["dry"],
-        "hair_types":[],
-        "ingredients":["ceramides", "cholesterol"],
-        "concerns":["dryness", "barrier repair"]
+        "id": "006",
+        "name": "CeraVe Moisturizing Cream",
+        "description": "A rich, non-greasy, fast-absorbing cream that provides 24-hour hydration and helps restore the protective skin barrier.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "ceramides",
+            "cholesterol"
+        ],
+        "concerns": [
+            "dryness",
+            "barrier repair"
+        ]
     },
     {
-        "id":"007",
-        "name":"La Roche-Posay Toleriane Double Repair Face Moisturizer",
-        "description":"A lightweight moisturizer that helps restore the skin's natural protective barrier and provides long-lasting hydration.",
-        "price_range":"$$",
-        "category":"moisturizer",
-        "skin_types":["sensitive"],
-        "hair_types":[],
-        "ingredients":["niacinamide", "ceramides"],
-        "concerns":["hydration", "barrier repair"]
+        "id": "007",
+        "name": "La Roche-Posay Toleriane Double Repair Face Moisturizer",
+        "description": "A lightweight moisturizer that helps restore the skin's natural protective barrier and provides long-lasting hydration.",
+        "price_range": "$$",
+        "category": "moisturizer",
+        "skin_types": [
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "niacinamide",
+            "ceramides"
+        ],
+        "concerns": [
+            "hydration",
+            "barrier repair"
+        ]
     },
     {
-        "id":"008",
-        "name":"Neutrogena Hydro Boost Water Gel",
-        "description":"A refreshing gel-cream moisturizer that provides intense hydration and helps lock in moisture for a smooth, supple complexion.",
-        "price_range":"$",
-        "category":"moisturizer",
-        "skin_types":["oily"],
-        "hair_types":[],
-        "ingredients":["hyaluronic acid"],
-        "concerns":["lightweight hydration"]
+        "id": "008",
+        "name": "Neutrogena Hydro Boost Water Gel",
+        "description": "A refreshing gel-cream moisturizer that provides intense hydration and helps lock in moisture for a smooth, supple complexion.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "lightweight hydration"
+        ]
     },
     {
-        "id":"009",
-        "name":"The Ordinary Niacinamide 10% + Zinc 1%",
-        "description":"A serum that targets blemishes, congestion, and uneven skin tone, helping to improve the overall appearance of the skin.",
-        "price_range":"$",
-        "category":"serum",
-        "skin_types":["oily", "combination"],
-        "hair_types":[],
-        "ingredients":["niacinamide", "zinc"],
-        "concerns":["oil control", "pores"]
+        "id": "009",
+        "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+        "description": "A serum that targets blemishes, congestion, and uneven skin tone, helping to improve the overall appearance of the skin.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "niacinamide",
+            "zinc"
+        ],
+        "concerns": [
+            "oil control",
+            "pores"
+        ]
     },
     {
-        "id":"010",
-        "name":"The Ordinary Hyaluronic Acid 2% + B5",
-        "description":"A hydrating serum that helps to plump the skin and improve its moisture retention, leaving it soft and supple.",
-        "price_range":"$",
-        "category":"serum",
-        "skin_types":["oily", "dry", "combination", "sensitive", "normal"],
-        "hair_types":[],
-        "ingredients":["hyaluronic acid", "vitamin B5"],
-        "concerns":["dehydration"]
+        "id": "010",
+        "name": "The Ordinary Hyaluronic Acid 2% + B5",
+        "description": "A hydrating serum that helps to plump the skin and improve its moisture retention, leaving it soft and supple.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "oily",
+            "dry",
+            "combination",
+            "sensitive",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "hyaluronic acid",
+            "vitamin B5"
+        ],
+        "concerns": [
+            "dehydration"
+        ]
     },
     {
-        "id":"011",
-        "name":"The Ordinary Retinol 0.3% in Squalane",
-        "description":"A gentle retinol serum that helps to reduce the appearance of fine lines, wrinkles, and uneven skin tone while improving skin texture.",
-        "price_range":"$",
-        "category":"serum",
-        "skin_types":["normal", "combination"],
-        "hair_types":[],
-        "ingredients":["retinol", "squalane"],
-        "concerns":["fine lines", "acne marks"]
+        "id": "011",
+        "name": "The Ordinary Retinol 0.3% in Squalane",
+        "description": "A gentle retinol serum that helps to reduce the appearance of fine lines, wrinkles, and uneven skin tone while improving skin texture.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "normal",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "retinol",
+            "squalane"
+        ],
+        "concerns": [
+            "fine lines",
+            "acne marks"
+        ]
     },
     {
-        "id":"012",
-        "name":"SkinCeuticals C E Ferulic",
-        "description":"A powerful antioxidant serum that combines vitamin C, vitamin E, and ferulic acid to protect the skin from environmental damage and improve the appearance of fine lines and wrinkles.",
-        "price_range":"$$$",
-        "category":"serum",
-        "skin_types":["normal", "dry", "combination"],
-        "hair_types":[],
-        "ingredients":["vitamin C", "Vitamin E", "ferulic acid"],
-        "concerns":["dullness", "hyperpigmentation"]
+        "id": "012",
+        "name": "SkinCeuticals C E Ferulic",
+        "description": "A powerful antioxidant serum that combines vitamin C, vitamin E, and ferulic acid to protect the skin from environmental damage and improve the appearance of fine lines and wrinkles.",
+        "price_range": "$$$",
+        "category": "serum",
+        "skin_types": [
+            "normal",
+            "dry",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "vitamin C",
+            "Vitamin E",
+            "ferulic acid"
+        ],
+        "concerns": [
+            "dullness",
+            "hyperpigmentation"
+        ]
     },
     {
-        "id":"013",
-        "name":"La Roche-Posay Anthelios Melt-in Milk Sunscreen SPF 60",
-        "description":"A lightweight, non-greasy moisturizer with broad-spectrum SPF 60 that provides hydration and sun protection for the skin.",
-        "price_range":"$$",
-        "category":"sunscreen",
-        "skin_types":["sensitive", "dry"],
-        "hair_types":[],
-        "ingredients":["avobenzone", "homosalate"],
-        "concerns":["UV protection"]
+        "id": "013",
+        "name": "La Roche-Posay Anthelios Melt-in Milk Sunscreen SPF 60",
+        "description": "A lightweight, non-greasy moisturizer with broad-spectrum SPF 60 that provides hydration and sun protection for the skin.",
+        "price_range": "$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "sensitive",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "avobenzone",
+            "homosalate"
+        ],
+        "concerns": [
+            "UV protection"
+        ]
     },
     {
-        "id":"014",
-        "name":"EltaMD UV Clear SPF 46",
-        "description":"A lightweight, oil-free sunscreen that provides broad-spectrum SPF 46 protection while calming and protecting sensitive skin types prone to discoloration and breakouts.",
-        "price_range":"$$$",
-        "category":"sunscreen",
-        "skin_types":["sensitive"],
-        "hair_types":[],
-        "ingredients":["zinc oxide", "niacinamide"],
-        "concerns":["redness", "acne"]
+        "id": "014",
+        "name": "EltaMD UV Clear SPF 46",
+        "description": "A lightweight, oil-free sunscreen that provides broad-spectrum SPF 46 protection while calming and protecting sensitive skin types prone to discoloration and breakouts.",
+        "price_range": "$$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "zinc oxide",
+            "niacinamide"
+        ],
+        "concerns": [
+            "redness",
+            "acne"
+        ]
     },
     {
-        "id":"015",
-        "name":"CeraVe Daily Moisturizing Lotion SPF 30",
-        "description":"A lightweight, non-greasy moisturizer with broad-spectrum SPF 30 that provides hydration and sun protection for the skin.",
-        "price_range":"$",
-        "category":"sunscreen",
-        "skin_types":["normal", "combination"],
-        "hair_types":[],
-        "ingredients":["ceramides", "zinc oxide"],
-        "concerns":["daily protection"]
+        "id": "015",
+        "name": "CeraVe Ultra-Light Moisturizing Lotion SPF 30",
+        "description": "A lightweight, non-greasy moisturizer with broad-spectrum SPF 30 that provides hydration and sun protection for the skin.",
+        "price_range": "$",
+        "category": "sunscreen",
+        "skin_types": [
+            "normal",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "ceramides",
+            "zinc oxide"
+        ],
+        "concerns": [
+            "daily protection"
+        ]
     },
     {
-        "id":"016",
-        "name":"The Ordinary Salicylic Acid 2% Solution",
-        "description":"A targeted treatment that helps to exfoliate the skin, unclog pores, and reduce the appearance of blemishes and congestion.",
-        "price_range":"$",
-        "category":"BHA treatment",
-        "skin_types":["oily"],
-        "hair_types":[],
-        "ingredients":["salicylic acid"],
-        "concerns":["acne", "blackheads"]
+        "id": "016",
+        "name": "The Ordinary Salicylic Acid 2% Solution",
+        "description": "A targeted treatment that helps to exfoliate the skin, unclog pores, and reduce the appearance of blemishes and congestion.",
+        "price_range": "$",
+        "category": "BHA treatment",
+        "skin_types": [
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "salicylic acid"
+        ],
+        "concerns": [
+            "acne",
+            "blackheads"
+        ]
     },
     {
-        "id":"017",
-        "name":"The Ordinary Glycolic Acid 7% Exfoliating Toner",
-        "description":"An exfoliating toner that helps to improve skin texture and radiance by gently removing dead skin cells and promoting cell turnover.",
-        "price_range":"$",
-        "category":"AHA treatment",
-        "skin_types":["normal", "combination"],
-        "hair_types":[],
-        "ingredients":["glycolic acid"],
-        "concerns":["texture", "dullness"]
+        "id": "017",
+        "name": "The Ordinary Glycolic Acid 7% Exfoliating Toner",
+        "description": "An exfoliating toner that helps to improve skin texture and radiance by gently removing dead skin cells and promoting cell turnover.",
+        "price_range": "$",
+        "category": "AHA treatment",
+        "skin_types": [
+            "normal",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycolic acid"
+        ],
+        "concerns": [
+            "texture",
+            "dullness"
+        ]
     },
     {
-        "id":"018",
-        "name":"The Ordinary Mandelic Acid 10% + HA",
-        "description":"A gentle exfoliating serum that helps to improve skin texture and radiance by promoting cell turnover and providing hydration.",
-        "price_range":"$",
-        "category":"exfoliant",
-        "skin_types":["sensitive"],
-        "hair_types":[],
-        "ingredients":["mandelic acid", "hyaluronic acid"],
-        "concerns":["mild exfoliation"]
+        "id": "018",
+        "name": "The Ordinary Mandelic Acid 10% + HA",
+        "description": "A gentle exfoliating serum that helps to improve skin texture and radiance by promoting cell turnover and providing hydration.",
+        "price_range": "$",
+        "category": "exfoliant",
+        "skin_types": [
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "mandelic acid",
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "mild exfoliation"
+        ]
     },
     {
-        "id":"019",
-        "name":"Neutrogena On-the-Spot Acne Treatment",
-        "description":"A fast-acting spot treatment that contains benzoyl peroxide to help reduce the size and redness of pimples and prevent future breakouts.",
-        "price_range":"$",
-        "category":"spot treatment",
-        "skin_types":["oily"],
-        "hair_types":[],
-        "ingredients":["benzoyl peroxide 2.5%"],
-        "concerns":["active pimples"]
+        "id": "019",
+        "name": "Neutrogena On-the-Spot Acne Treatment",
+        "description": "A fast-acting spot treatment that contains benzoyl peroxide to help reduce the size and redness of pimples and prevent future breakouts.",
+        "price_range": "$",
+        "category": "spot treatment",
+        "skin_types": [
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "benzoyl peroxide 2.5%"
+        ],
+        "concerns": [
+            "active pimples"
+        ]
     },
     {
-        "id":"020",
-        "name":"Paula's Choice Acne Spot Treatment",
-        "description":"A targeted spot treatment that contains salicylic acid to help reduce the size and redness of pimples and prevent future breakouts.",
-        "price_range":"$$",
-        "category":"spot treatment",
-        "skin_types":["sensitive", "oily"],
-        "hair_types":[],
-        "ingredients":["benzoyl peroxide"],
-        "concerns":["inflammatory acne"]
+        "id": "020",
+        "name": "Paula's Choice Acne Spot Treatment",
+        "description": "A targeted spot treatment that contains salicylic acid to help reduce the size and redness of pimples and prevent future breakouts.",
+        "price_range": "$$",
+        "category": "spot treatment",
+        "skin_types": [
+            "sensitive",
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "salicylic acid"
+        ],
+        "concerns": [
+            "inflammatory acne"
+        ]
     },
     {
-        "id":"021",
-        "name":"L'Oréal Paris EverPure Sulfate-Free Moisture Shampoo",
-        "description":"A sulfate-free shampoo that gently cleanses and nourishes color-treated hair while providing moisture and shine.",
-        "price_range":"$",
-        "category":"shampoo",
-        "skin_types":[],
-        "hair_types":["straight", "wavy"],
-        "ingredients":["rosemary extract", "botanical oils"],
-        "concerns":["dryness", "color-treated hair"]
+        "id": "021",
+        "name": "L'Oreal Paris EverPure Sulfate-Free Moisture Shampoo",
+        "description": "A sulfate-free shampoo that gently cleanses and nourishes color-treated hair while providing moisture and shine.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "rosemary extract",
+            "botanical oils"
+        ],
+        "concerns": [
+            "dryness",
+            "color-treated hair"
+        ]
     },
     {
-        "id":"022",
-        "name":"SheaMoisture Curl & Shine Shampoo",
-        "description":"A sulfate-free shampoo that gently cleanses and nourishes curly and coily hair while enhancing natural curl definition and shine.",
-        "price_range":"$$",
-        "category":"shampoo",
-        "skin_types":[],
-        "hair_types":["curly"],
-        "ingredients":["coconut oil", "hibiscus flower extract"],
-        "concerns":["dryness", "frizz", "curl definition"]
+        "id": "022",
+        "name": "SheaMoisture Curl & Shine Shampoo",
+        "description": "A sulfate-free shampoo that gently cleanses and nourishes curly and coily hair while enhancing natural curl definition and shine.",
+        "price_range": "$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "curly"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "hibiscus flower extract"
+        ],
+        "concerns": [
+            "dryness",
+            "frizz",
+            "curl definition"
+        ]
     },
     {
-        "id":"023",
-        "name":"Kérastase Curl Manifesto Bain Hydratation Douceur Shampoo",
-        "description":"A nourishing shampoo that gently cleanses and hydrates curly hair while enhancing natural curl definition and shine.",
-        "price_range":"$$$",
-        "category":"shampoo",
-        "skin_types":[],
-        "hair_types":["coily"],
-        "ingredients":["manuka honey", "ceramides"],
-        "concerns":["dryness", "breakage"]
+        "id": "023",
+        "name": "K\u00e9rastase Curl Manifesto Bain Hydratation Douceur Shampoo",
+        "description": "A nourishing shampoo that gently cleanses and hydrates curly hair while enhancing natural curl definition and shine.",
+        "price_range": "$$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "coily"
+        ],
+        "ingredients": [
+            "manuka honey",
+            "ceramides"
+        ],
+        "concerns": [
+            "dryness",
+            "breakage"
+        ]
     },
     {
-        "id":"024",
-        "name":"L'Oréal Paris EverPure Moisture Conditioner",
-        "description":"A sulfate-free conditioner that provides moisture and nourishment to color-treated hair while enhancing shine and manageability.",
-        "price_range":"$",
-        "category":"conditioner",
-        "skin_types":[],
-        "hair_types":["straight", "wavy"],
-        "ingredients":["rosemary extract", "botanical oils"],
-        "concerns":["dryness", "shine"]
+        "id": "024",
+        "name": "L'Or\u00e9al Paris EverPure Moisture Conditioner",
+        "description": "A sulfate-free conditioner that provides moisture and nourishment to color-treated hair while enhancing shine and manageability.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "rosemary extract",
+            "botanical oils"
+        ],
+        "concerns": [
+            "dryness",
+            "shine"
+        ]
     },
     {
-        "id":"025",
-        "name":"SheaMoisture Curl & Shine Conditioner",
-        "description":"A nourishing conditioner that provides moisture and nourishment to curly hair while enhancing natural curl definition and shine.",
-        "price_range":"$$",
-        "category":"conditioner",
-        "skin_types":[],
-        "hair_types":["curly"],
-        "ingredients":["coconut oil", "silk protein"],
-        "concerns":["frizz", "curl definition"]
+        "id": "025",
+        "name": "SheaMoisture Curl & Shine Conditioner",
+        "description": "A nourishing conditioner that provides moisture and nourishment to curly hair while enhancing natural curl definition and shine.",
+        "price_range": "$$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "curly"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "silk protein"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
     },
     {
-        "id":"026",
-        "name":"Pattern Beauty Intensive Hydration Conditioner",
-        "description":"A rich, nourishing conditioner that provides intense hydration and nourishment to coily hair while enhancing natural curl definition and shine.",
-        "price_range":"$$",
-        "category":"conditioner",
-        "skin_types":[],
-        "hair_types":["coily"],
-        "ingredients":["avocado oil", "shea butter"],
-        "concerns":["dryness", "detangling"]
+        "id": "026",
+        "name": "Pattern Beauty Intensive Hydration Conditioner",
+        "description": "A rich, nourishing conditioner that provides intense hydration and nourishment to coily hair while enhancing natural curl definition and shine.",
+        "price_range": "$$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "coily"
+        ],
+        "ingredients": [
+            "avocado oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "dryness",
+            "detangling"
+        ]
     },
     {
-        "id":"027",
-        "name":"SheaMoisture Curl Enhancing Smoothie",
-        "description":"A popular curl cream that enhances curl pattern and reduces frizz.",
-        "price_range":"$$",
-        "category":"curl cream",
-        "skin_types":[],
-        "hair_types":["curly", "coily"],
-        "ingredients":["shea butter", "coconut oil", "neem oil"],
-        "concerns":["frizz", "curl definition"]
+        "id": "027",
+        "name": "SheaMoisture Curl Enhancing Smoothie",
+        "description": "A popular curl cream that enhances curl pattern and reduces frizz.",
+        "price_range": "$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "shea butter",
+            "coconut oil",
+            "neem oil"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
     },
     {
-        "id":"028",
-        "name":"John Frieda Frizz Ease Extra Strength Serum",
-        "description":"A powerful serum that helps to tame frizz and flyaways while providing intense hydration and shine for curly hair.",
-        "price_range":"$",
-        "category":"hair serum",
-        "skin_types":[],
-        "hair_types":["straight", "wavy", "curly"],
-        "ingredients":["silicones", "argan oil"],
-        "concerns":["frizz", "shine"]
+        "id": "028",
+        "name": "John Frieda Frizz Ease Extra Strength Serum",
+        "description": "A powerful serum that helps to tame frizz and flyaways while providing intense hydration and shine for curly hair.",
+        "price_range": "$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "silicones",
+            "argan oil"
+        ],
+        "concerns": [
+            "frizz",
+            "shine"
+        ]
     },
     {
-        "id":"029",
-        "name":"Briogeo Don't Despair, Repair! Deep Conditioning Mask",
-        "description":"A deep conditioning mask that provides intense hydration and nourishment to dry, damaged hair while improving its overall health and appearance.",
-        "price_range":"$$$",
-        "category":"deep conditioner",
-        "skin_types":[],
-        "hair_types":["straight", "wavy", "curly", "coily"],
-        "ingredients":["rosehip oil", "algae extract", "B vitamins"],
-        "concerns":["damage", "dryness"]
+        "id": "029",
+        "name": "Briogeo Don't Despair, Repair! Deep Conditioning Mask",
+        "description": "A deep conditioning mask that provides intense hydration and nourishment to dry, damaged hair while improving its overall health and appearance.",
+        "price_range": "$$$",
+        "category": "deep conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "rosehip oil",
+            "algae extract",
+            "B vitamins"
+        ],
+        "concerns": [
+            "damage",
+            "dryness"
+        ]
     },
     {
-        "id":"030",
-        "name":"SheaMoisture Manuka Honey & Mafura Oil Intensive Hydration Hair Masque",
-        "description":"A deeply nourishing hair mask that provides intense hydration and nourishment to severely dry and damaged hair while improving its overall health and appearance.",
-        "price_range":"$$",
-        "category":"hair mask",
-        "skin_types":[],
-        "hair_types":["curly", "coily"],
-        "ingredients":["manuka honey", "mafura oil", "shea butter"],
-        "concerns":["severe dryness", "breakage"]
+        "id": "030",
+        "name": "SheaMoisture Manuka Honey & Mafura Oil Intensive Hydration Hair Masque",
+        "description": "A deeply nourishing hair mask that provides intense hydration and nourishment to severely dry and damaged hair while improving its overall health and appearance.",
+        "price_range": "$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "manuka honey",
+            "mafura oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "severe dryness",
+            "breakage"
+        ]
+    },
+    {
+        "id": "031",
+        "name": "Vanicream Gentle Facial Cleanser",
+        "description": "A non-foaming cleanser that gently removes makeup and impurities without stripping the skin.",
+        "price_range": "$",
+        "category": "cleanser",
+        "skin_types": [
+            "sensitive",
+            "dry",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycerin",
+            "squalane"
+        ],
+        "concerns": [
+            "sensitivity",
+            "barrier repair"
+        ]
+    },
+    {
+        "id": "032",
+        "name": "Cetaphil Gentle Skin Cleanser",
+        "description": "A mild cleanser that hydrates while removing dirt and makeup for sensitive skin.",
+        "price_range": "$",
+        "category": "cleanser",
+        "skin_types": [
+            "sensitive",
+            "dry",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycerin"
+        ],
+        "concerns": [
+            "gentle cleansing",
+            "dryness"
+        ]
+    },
+    {
+        "id": "033",
+        "name": "Bioderma Sensibio H2O Micellar Water",
+        "description": "A micellar cleanser that lifts away makeup and impurities while being gentle on reactive skin.",
+        "price_range": "$$",
+        "category": "cleanser",
+        "skin_types": [
+            "sensitive",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "micellar water",
+            "glycerin"
+        ],
+        "concerns": [
+            "makeup removal",
+            "irritation"
+        ]
+    },
+    {
+        "id": "034",
+        "name": "La Roche-Posay Toleriane Purifying Foaming Cleanser",
+        "description": "A foaming cleanser that helps reduce shine and unclog pores without over-drying.",
+        "price_range": "$$",
+        "category": "cleanser",
+        "skin_types": [
+            "oily",
+            "combination",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "niacinamide",
+            "ceramides"
+        ],
+        "concerns": [
+            "oil control",
+            "pores"
+        ]
+    },
+    {
+        "id": "035",
+        "name": "CeraVe SA Cleanser",
+        "description": "A salicylic acid cleanser that smooths rough texture and helps clear breakouts.",
+        "price_range": "$",
+        "category": "cleanser",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "salicylic acid",
+            "ceramides"
+        ],
+        "concerns": [
+            "roughness",
+            "acne"
+        ]
+    },
+    {
+        "id": "036",
+        "name": "Vanicream Daily Facial Moisturizer",
+        "description": "A lightweight moisturizer that provides calm hydration for daily use and sensitive skin.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "sensitive",
+            "normal",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycerin",
+            "squalane"
+        ],
+        "concerns": [
+            "daily hydration",
+            "barrier support"
+        ]
+    },
+    {
+        "id": "037",
+        "name": "Cetaphil Daily Hydrating Lotion",
+        "description": "A lightweight lotion that locks in moisture and leaves skin comfortable all day.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "dry",
+            "sensitive",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycerin",
+            "vitamin E"
+        ],
+        "concerns": [
+            "dryness",
+            "daily comfort"
+        ]
+    },
+    {
+        "id": "038",
+        "name": "Neutrogena Hydro Boost Gel-Cream",
+        "description": "A gel-cream moisturizer that delivers a fresh burst of hydration without heaviness.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "oily",
+            "combination",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "hyaluronic acid",
+            "glycerin"
+        ],
+        "concerns": [
+            "lightweight hydration"
+        ]
+    },
+    {
+        "id": "039",
+        "name": "Aveeno Daily Moisturizing Lotion",
+        "description": "A soothing lotion with colloidal oatmeal that helps relieve dry, itchy skin.",
+        "price_range": "$",
+        "category": "moisturizer",
+        "skin_types": [
+            "dry",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "colloidal oatmeal",
+            "glycerin"
+        ],
+        "concerns": [
+            "dryness",
+            "itching"
+        ]
+    },
+    {
+        "id": "040",
+        "name": "Belif The True Cream Aqua Bomb",
+        "description": "A refreshing gel moisturizer that provides hydration and a smooth finish.",
+        "price_range": "$$",
+        "category": "moisturizer",
+        "skin_types": [
+            "combination",
+            "normal",
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "squalane",
+            "beta glucan"
+        ],
+        "concerns": [
+            "dehydration",
+            "shine control"
+        ]
+    },
+    {
+        "id": "041",
+        "name": "Supergoop! Unseen Sunscreen SPF 40",
+        "description": "A weightless, invisible sunscreen that layers well under makeup and provides broad protection.",
+        "price_range": "$$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "sensitive",
+            "normal",
+            "combination",
+            "dry",
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "UV filters"
+        ],
+        "concerns": [
+            "daily protection",
+            "sensitivity"
+        ]
+    },
+    {
+        "id": "042",
+        "name": "EltaMD UV Daily Broad-Spectrum SPF 40",
+        "description": "A hydrating facial sunscreen that supports daily UV protection for normal and sensitive skin.",
+        "price_range": "$$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "sensitive",
+            "normal",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "zinc oxide",
+            "octinoxate"
+        ],
+        "concerns": [
+            "hydration",
+            "UV protection"
+        ]
+    },
+    {
+        "id": "043",
+        "name": "Neutrogena Ultra Sheer Dry-Touch SPF 55",
+        "description": "A fast-absorbing sunscreen that feels light and matte for oily or combination skin.",
+        "price_range": "$",
+        "category": "sunscreen",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "avobenzone",
+            "homosalate"
+        ],
+        "concerns": [
+            "oiliness",
+            "sun protection"
+        ]
+    },
+    {
+        "id": "044",
+        "name": "La Roche-Posay Anthelios Clear Skin Dry Touch Sunscreen SPF 60",
+        "description": "A mattifying sunscreen that helps protect acne-prone skin from UV exposure.",
+        "price_range": "$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "oily",
+            "combination",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "UV filters",
+            "zinc oxide"
+        ],
+        "concerns": [
+            "acne",
+            "shine control"
+        ]
+    },
+    {
+        "id": "045",
+        "name": "Shiseido Ultimate Sun Protection Lotion SPF 50+",
+        "description": "A high-protection sunscreen that offers lightweight, water-resistant coverage for daily wear.",
+        "price_range": "$$$",
+        "category": "sunscreen",
+        "skin_types": [
+            "normal",
+            "dry",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "zinc oxide",
+            "octinoxate"
+        ],
+        "concerns": [
+            "UV protection",
+            "water resistance"
+        ]
+    },
+    {
+        "id": "046",
+        "name": "Paula's Choice C15 Super Booster",
+        "description": "A vitamin C serum that brightens the complexion and helps support more even-looking skin.",
+        "price_range": "$$",
+        "category": "serum",
+        "skin_types": [
+            "normal",
+            "combination",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "vitamin C",
+            "ferulic acid"
+        ],
+        "concerns": [
+            "dullness",
+            "brightening"
+        ]
+    },
+    {
+        "id": "047",
+        "name": "The Inkey List Niacinamide Serum",
+        "description": "A serum designed to support clearer-looking skin and reduce the look of visible pores.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "oily",
+            "combination",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "niacinamide"
+        ],
+        "concerns": [
+            "pores",
+            "oiliness"
+        ]
+    },
+    {
+        "id": "048",
+        "name": "Good Molecules Discoloration Repair Serum",
+        "description": "A brightening serum that helps improve the look of uneven tone and post-acne marks.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "normal",
+            "combination",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "niacinamide",
+            "tranexamic acid"
+        ],
+        "concerns": [
+            "hyperpigmentation",
+            "brightening"
+        ]
+    },
+    {
+        "id": "049",
+        "name": "The Inkey List Hyaluronic Acid Serum",
+        "description": "A lightweight hydration serum that helps plump and soften the skin.",
+        "price_range": "$",
+        "category": "serum",
+        "skin_types": [
+            "dry",
+            "sensitive",
+            "normal",
+            "combination",
+            "oily"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "dehydration",
+            "plumping"
+        ]
+    },
+    {
+        "id": "050",
+        "name": "Differin Gel (Adapalene 0.1%)",
+        "description": "A retinoid treatment that helps clear acne and improve the appearance of skin texture.",
+        "price_range": "$$",
+        "category": "spot treatment",
+        "skin_types": [
+            "oily",
+            "combination",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "adapalene"
+        ],
+        "concerns": [
+            "acne",
+            "texture"
+        ]
+    },
+    {
+        "id": "051",
+        "name": "Mario Badescu Drying Lotion",
+        "description": "A classic spot treatment that helps reduce the appearance of pimples overnight.",
+        "price_range": "$",
+        "category": "spot treatment",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "sulfur",
+            "salicylic acid"
+        ],
+        "concerns": [
+            "active pimples",
+            "inflamed acne"
+        ]
+    },
+    {
+        "id": "052",
+        "name": "Clean & Clear Persa-Gel 10",
+        "description": "A benzoyl peroxide treatment that targets breakout-prone skin with fast action.",
+        "price_range": "$",
+        "category": "spot treatment",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "benzoyl peroxide"
+        ],
+        "concerns": [
+            "breakouts",
+            "redness"
+        ]
+    },
+    {
+        "id": "053",
+        "name": "Paula's Choice Skin Perfecting 2% BHA Liquid",
+        "description": "A leave-on exfoliant that helps reduce blackheads and smooth uneven texture.",
+        "price_range": "$$",
+        "category": "BHA treatment",
+        "skin_types": [
+            "oily",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "salicylic acid"
+        ],
+        "concerns": [
+            "blackheads",
+            "texture"
+        ]
+    },
+    {
+        "id": "054",
+        "name": "COSRX BHA Blackhead Power Liquid",
+        "description": "A gentle BHA treatment that helps clear clogged pores and refine skin texture.",
+        "price_range": "$$",
+        "category": "BHA treatment",
+        "skin_types": [
+            "oily",
+            "combination",
+            "sensitive"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "salicylic acid"
+        ],
+        "concerns": [
+            "clogged pores",
+            "breakouts"
+        ]
+    },
+    {
+        "id": "055",
+        "name": "The Ordinary Lactic Acid 5% + HA",
+        "description": "A mild AHA treatment that exfoliates while supporting hydration and a smoother feel.",
+        "price_range": "$",
+        "category": "AHA treatment",
+        "skin_types": [
+            "normal",
+            "combination",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "lactic acid",
+            "hyaluronic acid"
+        ],
+        "concerns": [
+            "texture",
+            "dullness"
+        ]
+    },
+    {
+        "id": "056",
+        "name": "Sunday Riley Good Genes All-in-One Lactic Acid Treatment",
+        "description": "A potent lactic acid treatment that helps refine texture and brighten the complexion.",
+        "price_range": "$$$",
+        "category": "AHA treatment",
+        "skin_types": [
+            "normal",
+            "combination",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "lactic acid"
+        ],
+        "concerns": [
+            "brightening",
+            "texture"
+        ]
+    },
+    {
+        "id": "057",
+        "name": "Dr. Dennis Gross Alpha Beta Universal Peel",
+        "description": "A two-step exfoliating peel that helps smooth skin and improve radiance.",
+        "price_range": "$$$",
+        "category": "exfoliant",
+        "skin_types": [
+            "normal",
+            "combination",
+            "dry"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycolic acid",
+            "salicylic acid"
+        ],
+        "concerns": [
+            "texture",
+            "dullness"
+        ]
+    },
+    {
+        "id": "058",
+        "name": "Paula's Choice 6% Mandelic Acid + 2% Lactic Acid Liquid Exfoliant",
+        "description": "A gentle exfoliant that helps improve clarity and smooth uneven skin without excessive irritation.",
+        "price_range": "$$",
+        "category": "exfoliant",
+        "skin_types": [
+            "sensitive",
+            "normal",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "mandelic acid",
+            "lactic acid"
+        ],
+        "concerns": [
+            "mild exfoliation",
+            "texture"
+        ]
+    },
+    {
+        "id": "059",
+        "name": "The Ordinary AHA 30% + BHA 2% Peeling Solution",
+        "description": "A strong peel that targets texture, congestion, and dullness for experienced users.",
+        "price_range": "$",
+        "category": "exfoliant",
+        "skin_types": [
+            "normal",
+            "combination"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "glycolic acid",
+            "salicylic acid"
+        ],
+        "concerns": [
+            "texture",
+            "congestion"
+        ]
+    },
+    {
+        "id": "060",
+        "name": "OGX Coconut Milk Shampoo",
+        "description": "A hydrating shampoo that gently cleanses while helping hair feel soft and nourished.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "wavy",
+            "straight"
+        ],
+        "ingredients": [
+            "coconut milk",
+            "tropical oils"
+        ],
+        "concerns": [
+            "hydration",
+            "softness"
+        ]
+    },
+    {
+        "id": "061",
+        "name": "Living Proof Perfect Hair Day Shampoo",
+        "description": "A daily shampoo that cleanses while helping maintain smooth, manageable hair.",
+        "price_range": "$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "silanes",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "manageability",
+            "daily cleansing"
+        ]
+    },
+    {
+        "id": "062",
+        "name": "Moroccanoil Moisture Repair Shampoo",
+        "description": "A repairing shampoo that helps restore moisture and improve the look of damaged hair.",
+        "price_range": "$$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "argan oil",
+            "quaternary compounds"
+        ],
+        "concerns": [
+            "damage",
+            "moisture"
+        ]
+    },
+    {
+        "id": "063",
+        "name": "Aussie Miracle Moist Shampoo",
+        "description": "An affordable shampoo that helps soften hair and make it easier to detangle.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "jojoba oil",
+            "Australian botanicals"
+        ],
+        "concerns": [
+            "dryness",
+            "detangling"
+        ]
+    },
+    {
+        "id": "064",
+        "name": "Nexxus Humectress Moisturizing Conditioner",
+        "description": "A rich conditioner that helps replenish moisture and smooth dry hair.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "proteins",
+            "moisturizing agents"
+        ],
+        "concerns": [
+            "dryness",
+            "softness"
+        ]
+    },
+    {
+        "id": "065",
+        "name": "Pantene Pro-V Daily Moisture Renewal Conditioner",
+        "description": "A daily conditioner that helps hydrate and leave hair soft and manageable.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "pro-vitamin B5",
+            "silicone"
+        ],
+        "concerns": [
+            "daily hydration",
+            "shine"
+        ]
+    },
+    {
+        "id": "066",
+        "name": "Aussie 3 Minute Miracle Deep Conditioner",
+        "description": "A quick deep conditioning treatment that helps soften and revive dry hair.",
+        "price_range": "$",
+        "category": "deep conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "jojoba oil",
+            "vitamin E"
+        ],
+        "concerns": [
+            "dryness",
+            "damage"
+        ]
+    },
+    {
+        "id": "067",
+        "name": "OGX Argan Oil of Morocco Penetrating Oil",
+        "description": "A lightweight hair oil that helps add shine and reduce frizz for smoother-looking hair.",
+        "price_range": "$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "argan oil",
+            "silicone"
+        ],
+        "concerns": [
+            "frizz",
+            "shine"
+        ]
+    },
+    {
+        "id": "068",
+        "name": "Moroccanoil Treatment Original",
+        "description": "A nourishing hair oil that adds shine and softness while helping tame flyaways.",
+        "price_range": "$$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "argan oil",
+            "vitamin E"
+        ],
+        "concerns": [
+            "frizz",
+            "shine"
+        ]
+    },
+    {
+        "id": "069",
+        "name": "Cantu Curl Activator Cream",
+        "description": "A curl cream that helps define curls and soften hair without weighing it down.",
+        "price_range": "$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "070",
+        "name": "Maui Moisture Curl Quench Coconut Oil Curl Smoothie",
+        "description": "A rich curl cream that helps define coils and maintain moisture for curly hair.",
+        "price_range": "$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "moisture",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "071",
+        "name": "DevaCurl SuperCream Coconut Curl Styler",
+        "description": "A hydrating styling cream that smooths curls and reduces frizz for soft definition.",
+        "price_range": "$$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "frizz",
+            "hydration"
+        ]
+    },
+    {
+        "id": "072",
+        "name": "SheaMoisture Raw Shea Moisture Retention Masque",
+        "description": "A rich hair mask that deeply hydrates and helps restore moisture to dry hair.",
+        "price_range": "$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "shea butter",
+            "sea kelp"
+        ],
+        "concerns": [
+            "dryness",
+            "breakage"
+        ]
+    },
+    {
+        "id": "073",
+        "name": "Kiehl's Ultra Facial Cream",
+        "description": "A rich daily moisturizer that helps strengthen the skin barrier while delivering long-lasting hydration.",
+        "price_range": "$$",
+        "category": "moisturizer",
+        "skin_types": [
+            "dry",
+            "sensitive",
+            "normal"
+        ],
+        "hair_types": [],
+        "ingredients": [
+            "squalane",
+            "glacial glycoprotein"
+        ],
+        "concerns": [
+            "dryness",
+            "barrier support"
+        ]
+    },
+    {
+        "id": "074",
+        "name": "Amika Soulfood Nourishing Hair Mask",
+        "description": "A nourishing mask that helps soften and replenish dry, brittle hair.",
+        "price_range": "$$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "avocado oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "dryness",
+            "softness"
+        ]
+    },
+    {
+        "id": "075",
+        "name": "K18 Leave-In Molecular Repair Hair Mask",
+        "description": "A leave-in treatment that helps strengthen and repair hair from the inside out.",
+        "price_range": "$$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "peptide complex",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "damage",
+            "strength"
+        ]
+    },
+    {
+        "id": "076",
+        "name": "Joico K-Pak RevitaLuxe Mask",
+        "description": "A rich repair mask that helps restore strength and smoothness to distressed hair.",
+        "price_range": "$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "keratin",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "damage",
+            "strength"
+        ]
+    },
+    {
+        "id": "077",
+        "name": "Garnier Fructis Sleek & Shine Shampoo",
+        "description": "A smoothing shampoo that helps tame frizz and bring shine to sleek hair.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "fruit extracts",
+            "silicone"
+        ],
+        "concerns": [
+            "frizz",
+            "shine"
+        ]
+    },
+    {
+        "id": "078",
+        "name": "Herbal Essences Bio:Renew Coconut Milk Shampoo",
+        "description": "A plant-based shampoo that cleanses gently while helping hair feel soft and nourished.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "coconut milk",
+            "botanical extracts"
+        ],
+        "concerns": [
+            "softness",
+            "gentle cleansing"
+        ]
+    },
+    {
+        "id": "079",
+        "name": "Pantene Pro-V Curl Perfection Conditioner",
+        "description": "A conditioner designed to define curls while keeping them soft and manageable.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "pro-vitamin B5",
+            "silicone"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "080",
+        "name": "OGX Thick & Full Biotin & Collagen Shampoo",
+        "description": "A volumizing shampoo that helps add body while cleansing the hair.",
+        "price_range": "$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "biotin",
+            "collagen"
+        ],
+        "concerns": [
+            "volume",
+            "body"
+        ]
+    },
+    {
+        "id": "081",
+        "name": "Dove Intense Repair Conditioner",
+        "description": "A strengthening conditioner that helps repair signs of damage and improve softness.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "nutrient serum",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "damage",
+            "softness"
+        ]
+    },
+    {
+        "id": "082",
+        "name": "Giovanni Smooth as Silk Conditioner",
+        "description": "A lightweight conditioner that smooths and softens hair without weighing it down.",
+        "price_range": "$$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy"
+        ],
+        "ingredients": [
+            "wheat protein",
+            "botanical extracts"
+        ],
+        "concerns": [
+            "smoothness",
+            "manageability"
+        ]
+    },
+    {
+        "id": "083",
+        "name": "Curlsmith Weightless Air Dry Cream",
+        "description": "A curl cream that helps define natural texture while reducing frizz and crunch.",
+        "price_range": "$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "shea butter",
+            "coconut oil"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "084",
+        "name": "Camille Rose Curl Love Moisture Milk",
+        "description": "A moisturizing styling lotion that helps soften and define curls and coils.",
+        "price_range": "$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "aloe vera",
+            "coconut oil"
+        ],
+        "concerns": [
+            "moisture",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "085",
+        "name": "Mielle Organics Pomegranate & Honey Curl Defining Cream",
+        "description": "A defining cream that helps hydrate curls and smooth flyaways for a polished finish.",
+        "price_range": "$$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "pomegranate extract",
+            "honey"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "086",
+        "name": "Moroccanoil Hydrating Shampoo",
+        "description": "A hydrating shampoo that gently cleanses and helps replenish moisture for dry hair.",
+        "price_range": "$$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "argan oil",
+            "moisturizing agents"
+        ],
+        "concerns": [
+            "dryness",
+            "softness"
+        ]
+    },
+    {
+        "id": "087",
+        "name": "Verb Hydrating Shampoo",
+        "description": "A moisturizing shampoo that leaves hair feeling soft, smooth, and hydrated.",
+        "price_range": "$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "aloe vera",
+            "botanical extracts"
+        ],
+        "concerns": [
+            "hydration",
+            "smoothness"
+        ]
+    },
+    {
+        "id": "088",
+        "name": "Nexxus Keraphix Shampoo",
+        "description": "A strengthening shampoo that helps improve the look of damaged or over-processed hair.",
+        "price_range": "$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "keratin protein",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "damage",
+            "strength"
+        ]
+    },
+    {
+        "id": "089",
+        "name": "L'Oréal Paris Elvive Total Repair 5 Conditioner",
+        "description": "A repairing conditioner that helps strengthen hair and reduce visible damage.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "protein",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "repair",
+            "softness"
+        ]
+    },
+    {
+        "id": "090",
+        "name": "R+Co Gemstone Color Shampoo",
+        "description": "A color-safe shampoo that helps preserve vibrancy while keeping hair clean and soft.",
+        "price_range": "$$$",
+        "category": "shampoo",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "color-protecting agents",
+            "botanical extracts"
+        ],
+        "concerns": [
+            "color-treated hair",
+            "shine"
+        ]
+    },
+    {
+        "id": "091",
+        "name": "Matrix Food For Soft Conditioner",
+        "description": "A lightweight conditioner that helps soften and add shine to hair without heaviness.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "sacha inchi oil",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "softness",
+            "shine"
+        ]
+    },
+    {
+        "id": "092",
+        "name": "John Frieda Frizz Ease Secret Weapon Crème",
+        "description": "A smoothing cream that helps tame frizz and add control for unruly hair.",
+        "price_range": "$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "silicones",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "frizz",
+            "control"
+        ]
+    },
+    {
+        "id": "093",
+        "name": "Olaplex No. 6 Bond Smoother",
+        "description": "A styling cream that smooths and strengthens hair while reducing flyaways.",
+        "price_range": "$$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "bond-building technology",
+            "silicone"
+        ],
+        "concerns": [
+            "frizz",
+            "strength"
+        ]
+    },
+    {
+        "id": "094",
+        "name": "Aussie Miracle Moist Conditioner",
+        "description": "A convenient conditioner that smooths and hydrates hair for everyday softness.",
+        "price_range": "$",
+        "category": "conditioner",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly"
+        ],
+        "ingredients": [
+            "jojoba oil",
+            "botanical extracts"
+        ],
+        "concerns": [
+            "dryness",
+            "softness"
+        ]
+    },
+    {
+        "id": "095",
+        "name": "Garnier Fructis Style Curl Construct Cream",
+        "description": "A curl cream that defines curls with flexible hold and reduced frizz.",
+        "price_range": "$",
+        "category": "curl cream",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "coconut oil",
+            "fruit extracts"
+        ],
+        "concerns": [
+            "frizz",
+            "curl definition"
+        ]
+    },
+    {
+        "id": "096",
+        "name": "SheaMoisture Jamaican Black Castor Oil Strengthen & Restore Masque",
+        "description": "A strengthening hair mask that helps improve resilience in damaged, brittle hair.",
+        "price_range": "$$",
+        "category": "hair mask",
+        "skin_types": [],
+        "hair_types": [
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "castor oil",
+            "shea butter"
+        ],
+        "concerns": [
+            "breakage",
+            "strength"
+        ]
+    },
+    {
+        "id": "097",
+        "name": "Mizani 25 Miracle Milk",
+        "description": "A leave-in milk that helps detangle and soften hair while adding light hydration.",
+        "price_range": "$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "olive oil",
+            "vitamin E"
+        ],
+        "concerns": [
+            "detangling",
+            "softness"
+        ]
+    },
+    {
+        "id": "098",
+        "name": "It’s a 10 Miracle Leave-In Product",
+        "description": "A multi-use leave-in treatment that smooths and conditions hair for easier styling.",
+        "price_range": "$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "conditioning agents",
+            "vitamin B5"
+        ],
+        "concerns": [
+            "manageability",
+            "frizz"
+        ]
+    },
+    {
+        "id": "099",
+        "name": "Redken Frizz Dismiss Rebel Tame",
+        "description": "A smoothing serum that helps control frizz and add shine to thick, unruly hair.",
+        "price_range": "$$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "silicone",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "frizz",
+            "shine"
+        ]
+    },
+    {
+        "id": "100",
+        "name": "Verb Ghost Oil",
+        "description": "A lightweight oil that helps soften hair and add shine without a greasy finish.",
+        "price_range": "$$",
+        "category": "hair serum",
+        "skin_types": [],
+        "hair_types": [
+            "straight",
+            "wavy",
+            "curly",
+            "coily"
+        ],
+        "ingredients": [
+            "squalane",
+            "conditioning agents"
+        ],
+        "concerns": [
+            "shine",
+            "softness"
+        ]
     }
 ]
-
