@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import ReactMarkdown from "react-markdown";
+import.meta.env.VITE_API_URL
 import './App.css'
 
 const sessionId = 'user-001'
