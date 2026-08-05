@@ -46,8 +46,8 @@ function App() {
 
   const fetchProfile = async () => {
     try {
-      const profileRes = await fetch(`http://localhost:8000/profile/${sessionId}`)
-      const routineRes = await fetch(`http://localhost:8000/routine/${sessionId}`)
+      const profileRes = await fetch(`${import.meta.env.VITE_API_URL}/profile/${sessionId}`)
+      const routineRes = await fetch(`${import.meta.env.VITE_API_URL}/routine/${sessionId}`)
       if (!profileRes.ok) return
       const data = await profileRes.json()
       const recommendedProducts = Array.isArray(data.recommended_products)
@@ -117,7 +117,7 @@ function App() {
     setIsLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8000/chat', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -154,7 +154,7 @@ function App() {
     setIngredientLoading(true)
     setIngredientResult(null)
     try {
-      const res = await fetch(`http://localhost:8000/ingredient/${encodeURIComponent(name)}`)
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/ingredient/${encodeURIComponent(name)}`)
       const data = await res.json()
       setIngredientResult(data)
     } catch (error) {
@@ -173,7 +173,7 @@ function App() {
     setConflictLoading(true)
     setConflictResult(null)
     try {
-      const res = await fetch('http://localhost:8000/ingredient/check-conflict', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/ingredient/check-conflict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ingredient1: first, ingredient2: second })
