@@ -31,8 +31,8 @@ class ConflictCheckResponse(BaseModel):
 app = FastAPI(title="Skincare and Haircare Agent", description="An AI agent that provides skincare and haircare advice.")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://skincare-haircare-agent.vercel.app",
-        "https://skincare-haircare-agent-1jhftsl3s-yamini1025s-projects.vercel.app"],
+    allow_origins=["https://skincare-haircare-agent.vercel.app"],
+    allow_origin_regex=r"https://skincare-haircare-agent(-[a-zA-Z0-9-]+)?-yamini1025s-projects\.vercel\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )
